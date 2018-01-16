@@ -8,9 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void (^onComplete)(NSDictionary * __nullable dataDict, NSString * __nullable errMessage);
+
 @interface BasicHTTPService : NSObject
 
-+ (id)instance;
-- (void)getCars;
++ (id __nullable)instance;
+- (void)getCars:(nullable onComplete)completionHandler;
 
 @end

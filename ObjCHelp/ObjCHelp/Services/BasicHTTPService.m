@@ -25,7 +25,7 @@ static NSString * UrlCars = @"/cars";
     return sharedInstance;
 }
 
-- (void)getCars {
+- (void)getCars:(nullable onComplete)completionHandler {
     NSURL * carsUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", UrlBase, UrlCars]];
     NSURLSession * session = [NSURLSession sharedSession];
     
@@ -39,15 +39,15 @@ static NSString * UrlCars = @"/cars";
                                                                               options:0
                                                                                 error:&parseError];
                     if (parseError == nil) {
-                        NSLog(@"Cars fetched : %@", jsonCars.debugDescription);
+                        completionHandler(jsonCars, nil);
                     }
                     else {
-                        NSLog(@"Parse error : %@", parseError.debugDescription);
+                        completionHandler(nil, parseError.debugDescription);
                     }
                 }
                 else
                 {
-                    NSLog(@"Request error : %@", error.debugDescription);
+                    completionHandler(nil, error.debugDescription);
                 }
             }] resume];
 }

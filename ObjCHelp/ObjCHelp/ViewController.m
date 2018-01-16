@@ -23,7 +23,14 @@
 
 - (IBAction)onGetCars:(id)sender {
     BasicHTTPService * basicService = [BasicHTTPService instance];
-    [basicService getCars];
+    [basicService getCars:^(NSDictionary * _Nullable dataDict, NSString * _Nullable errMessage) {
+        if (dataDict) {
+            NSLog(@"Results : %@", dataDict.debugDescription);
+        }
+        else if (errMessage) {
+            NSLog(@"Error : %@", errMessage);
+        }
+    }];
 }
 
 @end
