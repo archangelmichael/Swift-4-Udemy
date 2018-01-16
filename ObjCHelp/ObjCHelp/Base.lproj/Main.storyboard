@@ -18,17 +18,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="dEm-9N-ysd">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dEm-9N-ysd">
                                 <rect key="frame" x="20" y="40" width="335" height="607"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0rk-ba-Nas">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="607"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="298.5"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Get JSON Cars"/>
+                                        <connections>
+                                            <action selector="onGetJSONCars:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1pT-Ut-fQq"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M9z-Be-yrJ">
+                                        <rect key="frame" x="0.0" y="308.5" width="335" height="298.5"/>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Get Cars"/>
                                         <connections>
-                                            <action selector="onGetCars:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hif-Y1-mMB"/>
+                                            <action selector="onGetCars:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0rJ-Hp-wgU"/>
                                         </connections>
                                     </button>
                                 </subviews>

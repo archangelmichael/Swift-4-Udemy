@@ -14,6 +14,8 @@
 		19DB53A2200EA3C600CE6915 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19DB53A0200EA3C600CE6915 /* LaunchScreen.storyboard */; };
 		19DB53A5200EA3C600CE6915 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DB53A4200EA3C600CE6915 /* main.m */; };
 		19DB53AE200EA4A300CE6915 /* BasicHTTPService.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DB53AD200EA4A300CE6915 /* BasicHTTPService.m */; };
+		19DB53B3200EB33C00CE6915 /* JSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DB53B2200EB33C00CE6915 /* JSONParser.m */; };
+		19DB53B6200EB34B00CE6915 /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DB53B5200EB34B00CE6915 /* Car.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,10 @@
 		19DB53A4200EA3C600CE6915 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		19DB53AC200EA4A300CE6915 /* BasicHTTPService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BasicHTTPService.h; sourceTree = "<group>"; };
 		19DB53AD200EA4A300CE6915 /* BasicHTTPService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BasicHTTPService.m; sourceTree = "<group>"; };
+		19DB53B1200EB33C00CE6915 /* JSONParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSONParser.h; sourceTree = "<group>"; };
+		19DB53B2200EB33C00CE6915 /* JSONParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSONParser.m; sourceTree = "<group>"; };
+		19DB53B4200EB34B00CE6915 /* Car.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Car.h; sourceTree = "<group>"; };
+		19DB53B5200EB34B00CE6915 /* Car.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Car.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +67,8 @@
 		19DB5394200EA3C600CE6915 /* ObjCHelp */ = {
 			isa = PBXGroup;
 			children = (
+				19DB53B0200EB32B00CE6915 /* Data */,
+				19DB53AF200EB32300CE6915 /* Models */,
 				19DB53AB200EA48900CE6915 /* Services */,
 				19DB5395200EA3C600CE6915 /* AppDelegate.h */,
 				19DB5396200EA3C600CE6915 /* AppDelegate.m */,
@@ -82,6 +90,24 @@
 				19DB53AD200EA4A300CE6915 /* BasicHTTPService.m */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		19DB53AF200EB32300CE6915 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				19DB53B4200EB34B00CE6915 /* Car.h */,
+				19DB53B5200EB34B00CE6915 /* Car.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		19DB53B0200EB32B00CE6915 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				19DB53B1200EB33C00CE6915 /* JSONParser.h */,
+				19DB53B2200EB33C00CE6915 /* JSONParser.m */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,9 +181,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19DB53B6200EB34B00CE6915 /* Car.m in Sources */,
 				19DB53AE200EA4A300CE6915 /* BasicHTTPService.m in Sources */,
 				19DB539A200EA3C600CE6915 /* ViewController.m in Sources */,
 				19DB53A5200EA3C600CE6915 /* main.m in Sources */,
+				19DB53B3200EB33C00CE6915 /* JSONParser.m in Sources */,
 				19DB5397200EA3C600CE6915 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
