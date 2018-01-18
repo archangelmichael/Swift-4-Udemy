@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="09g-eQ-wXC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="j1Z-yq-ZKG">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -18,7 +18,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SwiftHelp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="SwiftHelp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -117,7 +117,7 @@
         <!--MaskVC-->
         <scene sceneID="KVU-BL-MSS">
             <objects>
-                <viewController id="09g-eQ-wXC" customClass="MaskVC" customModule="SwiftHelp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MaskVC" id="09g-eQ-wXC" customClass="MaskVC" customModule="SwiftHelp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VXr-fb-kt2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -154,6 +154,66 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EZq-30-UzX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="981.60000000000002" y="116.49175412293854"/>
+        </scene>
+        <!--Prop AnimVC-->
+        <scene sceneID="qvH-Lq-diJ">
+            <objects>
+                <viewController storyboardIdentifier="PropAnimVC" id="j1Z-yq-ZKG" customClass="PropAnimVC" customModule="SwiftHelp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rf5-j2-ydk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Yu5-p5-r5t">
+                                <rect key="frame" x="40" y="579" width="295" height="48"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RaQ-ZV-jG8">
+                                        <rect key="frame" x="0.0" y="0.0" width="142.5" height="48"/>
+                                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="START"/>
+                                        <connections>
+                                            <action selector="onStart:" destination="j1Z-yq-ZKG" eventType="touchUpInside" id="nYI-YB-2Yd"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WjY-UP-Udg">
+                                        <rect key="frame" x="152.5" y="0.0" width="142.5" height="48"/>
+                                        <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="STOP"/>
+                                        <connections>
+                                            <action selector="onStop:" destination="j1Z-yq-ZKG" eventType="touchUpInside" id="vLW-4G-EGY"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L38-uY-btK">
+                                <rect key="frame" x="137.5" y="283" width="100" height="100"/>
+                                <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="uUw-7L-zaD"/>
+                                    <constraint firstAttribute="height" constant="100" id="yIs-Dl-7gc"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="lwX-Zr-uZS" firstAttribute="bottom" secondItem="Yu5-p5-r5t" secondAttribute="bottom" constant="40" id="0Ei-o1-kc8"/>
+                            <constraint firstItem="L38-uY-btK" firstAttribute="centerY" secondItem="rf5-j2-ydk" secondAttribute="centerY" id="AA1-T1-gOd"/>
+                            <constraint firstItem="lwX-Zr-uZS" firstAttribute="trailing" secondItem="Yu5-p5-r5t" secondAttribute="trailing" constant="40" id="FrY-Jb-Ouc"/>
+                            <constraint firstItem="L38-uY-btK" firstAttribute="centerX" secondItem="rf5-j2-ydk" secondAttribute="centerX" id="NYj-N1-e4x"/>
+                            <constraint firstItem="Yu5-p5-r5t" firstAttribute="leading" secondItem="lwX-Zr-uZS" secondAttribute="leading" constant="40" id="d10-TM-2QQ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="lwX-Zr-uZS"/>
+                    </view>
+                    <connections>
+                        <outlet property="vAnimate" destination="L38-uY-btK" id="fVM-45-qll"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Le7-2j-JRa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1759" y="117"/>
         </scene>
     </scenes>
     <resources>
