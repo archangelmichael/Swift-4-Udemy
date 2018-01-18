@@ -12,6 +12,7 @@
 		19DB53EB201087FC00CE6915 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19DB53E9201087FC00CE6915 /* Main.storyboard */; };
 		19DB53ED201087FC00CE6915 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19DB53EC201087FC00CE6915 /* Assets.xcassets */; };
 		19DB53F0201087FC00CE6915 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19DB53EE201087FC00CE6915 /* LaunchScreen.storyboard */; };
+		19DB53F92010971F00CE6915 /* PermanentMarker-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 19DB53F82010971F00CE6915 /* PermanentMarker-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		19DB53EC201087FC00CE6915 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		19DB53EF201087FC00CE6915 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		19DB53F1201087FC00CE6915 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		19DB53F82010971F00CE6915 /* PermanentMarker-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PermanentMarker-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 		19DB53E4201087FC00CE6915 /* SwiftHelp */ = {
 			isa = PBXGroup;
 			children = (
+				19DB53F72010971100CE6915 /* Resources */,
 				19DB53E5201087FC00CE6915 /* AppDelegate.swift */,
 				19DB53E7201087FC00CE6915 /* ViewController.swift */,
 				19DB53E9201087FC00CE6915 /* Main.storyboard */,
@@ -62,6 +65,14 @@
 				19DB53F1201087FC00CE6915 /* Info.plist */,
 			);
 			path = SwiftHelp;
+			sourceTree = "<group>";
+		};
+		19DB53F72010971100CE6915 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				19DB53F82010971F00CE6915 /* PermanentMarker-Regular.ttf */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +136,7 @@
 			files = (
 				19DB53F0201087FC00CE6915 /* LaunchScreen.storyboard in Resources */,
 				19DB53ED201087FC00CE6915 /* Assets.xcassets in Resources */,
+				19DB53F92010971F00CE6915 /* PermanentMarker-Regular.ttf in Resources */,
 				19DB53EB201087FC00CE6915 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
