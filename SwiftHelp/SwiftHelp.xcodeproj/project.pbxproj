@@ -13,6 +13,7 @@
 		19DB53ED201087FC00CE6915 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19DB53EC201087FC00CE6915 /* Assets.xcassets */; };
 		19DB53F0201087FC00CE6915 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19DB53EE201087FC00CE6915 /* LaunchScreen.storyboard */; };
 		19DB53F92010971F00CE6915 /* PermanentMarker-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 19DB53F82010971F00CE6915 /* PermanentMarker-Regular.ttf */; };
+		19DB53FE2010A2B700CE6915 /* MaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DB53FD2010A2B700CE6915 /* MaskVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		19DB53EF201087FC00CE6915 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		19DB53F1201087FC00CE6915 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19DB53F82010971F00CE6915 /* PermanentMarker-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PermanentMarker-Regular.ttf"; sourceTree = "<group>"; };
+		19DB53FD2010A2B700CE6915 /* MaskVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +60,7 @@
 			children = (
 				19DB53F72010971100CE6915 /* Resources */,
 				19DB53E5201087FC00CE6915 /* AppDelegate.swift */,
-				19DB53E7201087FC00CE6915 /* ViewController.swift */,
+				19DB53FC2010A29800CE6915 /* ViewControllers */,
 				19DB53E9201087FC00CE6915 /* Main.storyboard */,
 				19DB53EC201087FC00CE6915 /* Assets.xcassets */,
 				19DB53EE201087FC00CE6915 /* LaunchScreen.storyboard */,
@@ -73,6 +75,15 @@
 				19DB53F82010971F00CE6915 /* PermanentMarker-Regular.ttf */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		19DB53FC2010A29800CE6915 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				19DB53E7201087FC00CE6915 /* ViewController.swift */,
+				19DB53FD2010A2B700CE6915 /* MaskVC.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				19DB53E8201087FC00CE6915 /* ViewController.swift in Sources */,
+				19DB53FE2010A2B700CE6915 /* MaskVC.swift in Sources */,
 				19DB53E6201087FC00CE6915 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

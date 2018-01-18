@@ -12,10 +12,11 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var ivGradient: UIImageView!
     var maskView : UIView!
-    var maskLayer : CALayer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        // Add mask view to gradient view
         maskView = UIView(frame: CGRect(x: 0,
                                         y: 0,
                                         width: self.ivGradient.bounds.width,
@@ -23,7 +24,8 @@ class ViewController: UIViewController {
         maskView.backgroundColor = UIColor.white.withAlphaComponent(0.8);
         self.ivGradient.addSubview(maskView);
     }
-
+    
+    
     
     @IBAction func onPercentageChange(_ sender: Any) {
         let precentage = 1 - Double((sender as! UIButton).tag)/100.0;
