@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="j1Z-yq-ZKG">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="PermanentMarker-Regular.ttf">
+            <string>PermanentMarker-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="SwiftHelp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gradient_full" translatesAutoresizingMaskIntoConstraints="NO" id="Xbu-ND-eqj">
+                                <rect key="frame" x="16" y="20" width="60" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="NXa-d2-z5C"/>
+                                    <constraint firstAttribute="height" constant="200" id="XaO-2l-5Fl"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="zdS-B1-5RU">
+                                <rect key="frame" x="92" y="20" width="267" height="200"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yKT-DE-6Jf">
+                                        <rect key="frame" x="0.0" y="0.0" width="267" height="32"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="PermanentMarker-Regular" family="Permanent Marker" pointSize="20"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="0 Percent"/>
+                                        <connections>
+                                            <action selector="onPercentageChange:" destination="BYZ-38-t0r" eventType="touchUpInside" id="djf-xZ-wvY"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="25" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j1T-q6-Tsi">
+                                        <rect key="frame" x="0.0" y="42" width="267" height="32"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="PermanentMarker-Regular" family="Permanent Marker" pointSize="20"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="25 Percent"/>
+                                        <connections>
+                                            <action selector="onPercentageChange:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TTW-zZ-bxp"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="50" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vvy-CT-59y">
+                                        <rect key="frame" x="0.0" y="84" width="267" height="32"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="PermanentMarker-Regular" family="Permanent Marker" pointSize="20"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="50 Percent"/>
+                                        <connections>
+                                            <action selector="onPercentageChange:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oti-DY-Dwg"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="75" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fjm-7W-VsZ">
+                                        <rect key="frame" x="0.0" y="126" width="267" height="32"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="PermanentMarker-Regular" family="Permanent Marker" pointSize="20"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="75 Percent"/>
+                                        <connections>
+                                            <action selector="onPercentageChange:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XyL-I2-jwE"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HPz-4r-LQE">
+                                        <rect key="frame" x="0.0" y="168" width="267" height="32"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="PermanentMarker-Regular" family="Permanent Marker" pointSize="20"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="100 Percent"/>
+                                        <connections>
+                                            <action selector="onPercentageChange:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tvI-E4-O0R"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="JHf-Jv-yBe"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Xbu-ND-eqj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="AZO-dH-0jm"/>
+                            <constraint firstItem="zdS-B1-5RU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="F7f-4B-SDk"/>
+                            <constraint firstItem="zdS-B1-5RU" firstAttribute="leading" secondItem="Xbu-ND-eqj" secondAttribute="trailing" constant="16" id="GtG-PJ-bdz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zdS-B1-5RU" secondAttribute="trailing" constant="16" id="REJ-fe-VlD"/>
+                            <constraint firstItem="Xbu-ND-eqj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="VCR-la-CQW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="ivGradient" destination="Xbu-ND-eqj" id="voG-wU-C4K"/>
+                        <outlet property="ivMasked" destination="p0B-Ei-OhT" id="0m1-f5-rlm"/>
+                        <outlet property="vMask" destination="DJU-cF-ljV" id="ChO-Db-V3e"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="117.39130434782609"/>
+        </scene>
+        <!--MaskVC-->
+        <scene sceneID="KVU-BL-MSS">
+            <objects>
+                <viewController storyboardIdentifier="MaskVC" id="09g-eQ-wXC" customClass="MaskVC" customModule="SwiftHelp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VXr-fb-kt2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="under_armor" translatesAutoresizingMaskIntoConstraints="NO" id="p0B-Ei-OhT">
+                                <rect key="frame" x="27" y="233.5" width="320" height="200"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="GVE-Se-jzf"/>
+                                    <constraint firstAttribute="width" constant="320" id="htD-yY-DYF"/>
+                                </constraints>
+                            </imageView>
+                            <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DJU-cF-ljV">
+                                <rect key="frame" x="27" y="233" width="320" height="200"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="p0B-Ei-OhT" firstAttribute="centerY" secondItem="VXr-fb-kt2" secondAttribute="centerY" id="9YH-xW-GPj"/>
+                            <constraint firstItem="DJU-cF-ljV" firstAttribute="width" secondItem="p0B-Ei-OhT" secondAttribute="width" id="Hms-Q5-3vS"/>
+                            <constraint firstItem="DJU-cF-ljV" firstAttribute="centerY" secondItem="VXr-fb-kt2" secondAttribute="centerY" id="Hy0-UB-Ad8"/>
+                            <constraint firstItem="DJU-cF-ljV" firstAttribute="height" secondItem="p0B-Ei-OhT" secondAttribute="height" id="ORl-my-NCz"/>
+                            <constraint firstItem="DJU-cF-ljV" firstAttribute="centerX" secondItem="VXr-fb-kt2" secondAttribute="centerX" id="a2V-Ky-FSh"/>
+                            <constraint firstItem="p0B-Ei-OhT" firstAttribute="centerX" secondItem="VXr-fb-kt2" secondAttribute="centerX" id="rm5-0F-K1Y"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="F0r-fv-Hit"/>
+                    </view>
+                    <connections>
+                        <outlet property="ivMasked" destination="p0B-Ei-OhT" id="v8z-FN-1pQ"/>
+                        <outlet property="vMask" destination="DJU-cF-ljV" id="aDc-QP-UjM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EZq-30-UzX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="981.60000000000002" y="116.49175412293854"/>
+        </scene>
+        <!--Prop AnimVC-->
+        <scene sceneID="qvH-Lq-diJ">
+            <objects>
+                <viewController storyboardIdentifier="PropAnimVC" id="j1Z-yq-ZKG" customClass="PropAnimVC" customModule="SwiftHelp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rf5-j2-ydk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Yu5-p5-r5t">
+                                <rect key="frame" x="40" y="579" width="295" height="48"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RaQ-ZV-jG8">
+                                        <rect key="frame" x="0.0" y="0.0" width="142.5" height="48"/>
+                                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="START"/>
+                                        <connections>
+                                            <action selector="onStart:" destination="j1Z-yq-ZKG" eventType="touchUpInside" id="nYI-YB-2Yd"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WjY-UP-Udg">
+                                        <rect key="frame" x="152.5" y="0.0" width="142.5" height="48"/>
+                                        <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="STOP"/>
+                                        <connections>
+                                            <action selector="onStop:" destination="j1Z-yq-ZKG" eventType="touchUpInside" id="vLW-4G-EGY"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L38-uY-btK">
+                                <rect key="frame" x="137.5" y="283" width="100" height="100"/>
+                                <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="uUw-7L-zaD"/>
+                                    <constraint firstAttribute="height" constant="100" id="yIs-Dl-7gc"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="lwX-Zr-uZS" firstAttribute="bottom" secondItem="Yu5-p5-r5t" secondAttribute="bottom" constant="40" id="0Ei-o1-kc8"/>
+                            <constraint firstItem="L38-uY-btK" firstAttribute="centerY" secondItem="rf5-j2-ydk" secondAttribute="centerY" id="AA1-T1-gOd"/>
+                            <constraint firstItem="lwX-Zr-uZS" firstAttribute="trailing" secondItem="Yu5-p5-r5t" secondAttribute="trailing" constant="40" id="FrY-Jb-Ouc"/>
+                            <constraint firstItem="L38-uY-btK" firstAttribute="centerX" secondItem="rf5-j2-ydk" secondAttribute="centerX" id="NYj-N1-e4x"/>
+                            <constraint firstItem="Yu5-p5-r5t" firstAttribute="leading" secondItem="lwX-Zr-uZS" secondAttribute="leading" constant="40" id="d10-TM-2QQ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="lwX-Zr-uZS"/>
+                    </view>
+                    <connections>
+                        <outlet property="vAnimate" destination="L38-uY-btK" id="fVM-45-qll"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Le7-2j-JRa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1759" y="117"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="gradient_full" width="139" height="629"/>
+        <image name="under_armor" width="1024" height="640"/>
+    </resources>
+</document>
