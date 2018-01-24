@@ -10,6 +10,8 @@
 		19CCE88720192ACA00497584 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 19CCE88620192ACA00497584 /* GoogleService-Info.plist */; };
 		19CCE88920192C5C00497584 /* ChatStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19CCE88820192C5C00497584 /* ChatStoryboard.storyboard */; };
 		19CCE88D2019308D00497584 /* ChatLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CCE88C2019308D00497584 /* ChatLoginVC.swift */; };
+		19CCE88F2019341700497584 /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CCE88E2019341700497584 /* RoundView.swift */; };
+		19CCE891201935D500497584 /* RoundTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CCE890201935D500497584 /* RoundTextField.swift */; };
 		19DB53E6201087FC00CE6915 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DB53E5201087FC00CE6915 /* AppDelegate.swift */; };
 		19DB53E8201087FC00CE6915 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DB53E7201087FC00CE6915 /* ViewController.swift */; };
 		19DB53EB201087FC00CE6915 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19DB53E9201087FC00CE6915 /* Main.storyboard */; };
@@ -26,6 +28,8 @@
 		19CCE88620192ACA00497584 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		19CCE88820192C5C00497584 /* ChatStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChatStoryboard.storyboard; sourceTree = "<group>"; };
 		19CCE88C2019308D00497584 /* ChatLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLoginVC.swift; sourceTree = "<group>"; };
+		19CCE88E2019341700497584 /* RoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundView.swift; sourceTree = "<group>"; };
+		19CCE890201935D500497584 /* RoundTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundTextField.swift; sourceTree = "<group>"; };
 		19DB53E2201087FC00CE6915 /* SwiftHelp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftHelp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19DB53E5201087FC00CE6915 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19DB53E7201087FC00CE6915 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +67,8 @@
 		19CCE8822019299A00497584 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				19CCE88E2019341700497584 /* RoundView.swift */,
+				19CCE890201935D500497584 /* RoundTextField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -305,7 +311,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				19DB53E8201087FC00CE6915 /* ViewController.swift in Sources */,
+				19CCE88F2019341700497584 /* RoundView.swift in Sources */,
 				19DB53FE2010A2B700CE6915 /* MaskVC.swift in Sources */,
+				19CCE891201935D500497584 /* RoundTextField.swift in Sources */,
 				19DB54042010DFF100CE6915 /* PropAnimVC.swift in Sources */,
 				19DB53E6201087FC00CE6915 /* AppDelegate.swift in Sources */,
 				19CCE88D2019308D00497584 /* ChatLoginVC.swift in Sources */,
