@@ -6,5 +6,6 @@ target 'SwiftHelp' do
 
   # Pods for SwiftHelp
 pod 'Firebase/Core'
+pod 'Firebase/Auth'
 
 end
