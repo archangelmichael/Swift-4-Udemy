@@ -44,7 +44,11 @@ class AuthService: NSObject {
         }
     }
     
-    func register(email:String, pass:String, completion: AuthCompletion?) {
+    func register(firstname: String,
+                  lastname: String,
+                  email: String,
+                  pass: String,
+                  completion: AuthCompletion?) {
         Auth.auth().createUser(withEmail: email, password: pass) { (user, error) in
             if error != nil {
                 print("Register error \(error?.localizedDescription ?? "")")
@@ -52,7 +56,10 @@ class AuthService: NSObject {
             }
             else {
                 print("Register done")
-                DataService.instance.saveUser(userID: user!.uid)
+                DataService.instance.saveUser(uid: user!.uid,
+                                              firstname: firstname,
+                                              lastname: lastname,
+                                              email: user?.email)
                 completion?(true, nil)
             }
         }

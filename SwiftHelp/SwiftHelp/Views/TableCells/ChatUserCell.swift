@@ -29,4 +29,8 @@ class ChatUserCell: UITableViewCell {
         }
     }
     
+    func updateUI(user: ChatUser) {
+        self.lblName.text = user.fullname
+    }
+    
 }

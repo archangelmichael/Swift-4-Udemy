@@ -20,6 +20,12 @@ class ChatLoginVC: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tfEmail.text = nil
+        self.tfPass.text = nil
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -29,7 +35,11 @@ class ChatLoginVC: UIViewController {
     }
     
     @IBAction func onLogin(_ sender: Any) {
-        if let email = tfEmail.text, let pass = tfPass.text, email.count > 0 && pass.count > 0 {
+        if let email = tfEmail.text,
+            let pass = tfPass.text,
+            email.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).count > 0,
+            pass.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).count > 0 {
+            
             AuthService.instance.login(email: email,
                                        pass: pass,
                                        completion:
@@ -47,28 +57,11 @@ class ChatLoginVC: UIViewController {
         }
     }
     
-    @IBAction func onRegister(_ sender: Any) {
-        if let email = tfEmail.text, let pass = tfPass.text, email.count > 0 && pass.count > 0 {
-            AuthService.instance.register(email:email,
-                                          pass: pass,
-                                          completion:
-                { [unowned self] (success, message) in
-                    if success {
-                        self.login()
-                    }
-                    else {
-                        self.showAlert(title: "Register error", message: message)
-                    }
-            })
-        }
-        else {
-            self.showAlert(title: "Missing input")
-        }
-    }
-    
     func login() {
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "showChatHome", sender: nil)
         }
     }
+    
+    @IBAction func unwindToChatLoginVC(segue:UIStoryboardSegue) { }
 }

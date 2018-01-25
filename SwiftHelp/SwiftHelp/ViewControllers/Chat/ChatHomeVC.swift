@@ -11,8 +11,9 @@ import UIKit
 class ChatHomeVC: UIViewController {
 
     @IBOutlet weak var sbarSearch: TransparentSearchBar!
-    
     @IBOutlet weak var tvUsers: UITableView!
+    
+    private var users : [ChatUser] = [ChatUser]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +23,10 @@ class ChatHomeVC: UIViewController {
         
         self.tvUsers.registerNib(ChatUserCell.self)
         self.tvUsers.dataSource = self
+        
+        DataService.instance.getUsers { (snapshot) in
+            print(snapshot.debugDescription)
+        }
     }
     
     @IBAction func onLogout(_ sender: Any) {

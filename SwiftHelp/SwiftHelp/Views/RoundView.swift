@@ -8,7 +8,8 @@
 
 import UIKit
 
-@IBDesignable
+// Uncomment to see how it actually looks in storyboard design time
+//@IBDesignable
 class RoundView: UIView {
 
     @IBInspectable

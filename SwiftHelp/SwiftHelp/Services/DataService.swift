@@ -9,6 +9,8 @@
 import UIKit
 import FirebaseDatabase
 
+typealias DataFetchCompletion = (DataSnapshot) -> Void
+
 class DataService: NSObject {
 
     private static let _instance = DataService()
@@ -17,12 +19,26 @@ class DataService: NSObject {
         return _instance
     }
     
-    var dbReference: DatabaseReference {
+    private var dbReference: DatabaseReference {
         return Database.database().reference()
     }
     
-    func saveUser(userID: String) {
-        let profile = ["firstname" : "Name", "lastname" : "Surname"]
-        dbReference.child("users").child(userID).child("profile").setValue(profile)
+    private var usersReference: DatabaseReference {
+        return dbReference.child("users")
+    }
+    
+    func saveUser(uid: String,
+                  firstname: String?,
+                  lastname: String?,
+                  email: String?) {
+        let profile = ["email" : email,
+                       "firstname" : firstname,
+                       "lastname" : lastname]
+        usersReference.child(uid).child("profile").setValue(profile)
+    }
+    
+    func getUsers(completion: @escaping DataFetchCompletion) {
+        usersReference.observe(DataEventType.value,
+                               with: completion)
     }
 }
