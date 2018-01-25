@@ -10,15 +10,13 @@ import UIKit
 
 class ChatUserCell: UITableViewCell {
     
-    var isMarked: Bool = false
-
     @IBOutlet weak var ivAvatar: RoundImageView!
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblEmail: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.mark(selected: false)
     }
     
     func updateUI(user: ChatUser) {
@@ -29,6 +27,5 @@ class ChatUserCell: UITableViewCell {
     func mark(selected: Bool) {
         let imageChecked = #imageLiteral(resourceName: "check-mark").resized(size: 30.0)
         self.accessoryView = selected ? UIImageView(image: imageChecked) : nil
-        self.isMarked = selected
     }
 }

@@ -16,8 +16,6 @@ class ChatLoginVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,10 +56,10 @@ class ChatLoginVC: UIViewController {
     }
     
     func login() {
-        DispatchQueue.main.async {
-            self.performSegue(withIdentifier: "showChatHome", sender: nil)
-        }
+        self.present(vc: ChatHomeVC.self)
     }
     
-    @IBAction func unwindToChatLoginVC(segue:UIStoryboardSegue) { }
+    @IBAction func onRegister(_ sender: Any) {
+        self.present(vc: ChatRegisterVC.self, push: false)
+    }
 }

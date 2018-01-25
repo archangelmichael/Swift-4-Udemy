@@ -12,8 +12,10 @@ class ChatHomeVC: UIViewController {
 
     @IBOutlet weak var sbarSearch: TransparentSearchBar!
     @IBOutlet weak var tvUsers: UITableView!
+    @IBOutlet weak var btnSend: UIButton!
     
     private var users : [ChatUser] = [ChatUser]()
+    private var selectedUsers : [String : ChatUser] = [String : ChatUser]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,26 +28,32 @@ class ChatHomeVC: UIViewController {
         self.tvUsers.delegate = self
         
         DataService.instance.getUsers { [unowned self] (usersData) in
-            print(usersData.debugDescription)
             self.reloadUsers(data: usersData)
         }
     }
     
     func reloadUsers(data: [ChatUser]) {
-        DispatchQueue.main.async {
-            self.users = data
-            self.tvUsers.reloadData()
-        }
+        self.users = data
+        self.selectedUsers.removeAll()
+        self.tvUsers.reloadData()
     }
     
     @IBAction func onLogout(_ sender: Any) {
         let success = AuthService.instance.logout()
         if success {
-            self.dismiss(animated: true, completion: nil)
+            self.close()
         }
         else {
             print("Error logging out")
         }
+    }
+    
+    @IBAction func onTakePicture(_ sender: Any) {
+        
+    }
+    
+    @IBAction func onSend(_ sender: Any) {
+        
     }
 }
 
@@ -67,8 +75,45 @@ extension ChatHomeVC : UITableViewDataSource {
 
 extension ChatHomeVC : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell: ChatUserCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
-        cell.mark(selected: cell.isMarked ? false : true)
-        tableView.deselectRow(at: indexPath, animated: true)
+        if let cell = tableView.cellForRow(at: indexPath) as? ChatUserCell {
+            cell.mark(selected: true)
+            self.selectUser(user: self.users[indexPath.row], selected: true)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) as? ChatUserCell {
+            cell.mark(selected: false)
+            self.selectUser(user: self.users[indexPath.row], selected: false)
+        }
+    }
+    
+    func selectUser(user: ChatUser, selected: Bool) {
+        self.selectedUsers[user.uid] = selected ? user : nil
+        self.btnSend.isEnabled = self.selectedUsers.count > 0
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

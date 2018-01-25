@@ -44,7 +44,7 @@ class ChatRegisterVC: UIViewController {
                                           completion:
                 { [unowned self] (success, message) in
                     if success {
-                        self.goBack()
+                        self.close()
                     }
                     else {
                         self.showAlert(title: "Register error", message: message)
@@ -57,12 +57,6 @@ class ChatRegisterVC: UIViewController {
     }
     
     @IBAction func onBack(_ sender: Any) {
-        self.goBack()
-    }
-    
-    func goBack() {
-        DispatchQueue.main.async {
-            self.performSegue(withIdentifier: "unwindToChatLoginVC", sender: nil)
-        }
+        self.close()
     }
 }
