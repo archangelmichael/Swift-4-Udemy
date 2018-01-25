@@ -10,28 +10,36 @@ import UIKit
 
 struct ChatUser {
     private var _uid : String
-    private var _firstname: String
-    private var _lastname: String
+    private var _firstname: String?
+    private var _lastname: String?
+    private var _email : String?
     
     var uid : String {
         get { return _uid }
     }
     
-    var firstname : String {
+    var firstname : String? {
         get {  return _firstname }
     }
     
-    var lastname : String {
+    var lastname : String? {
         get { return _lastname }
     }
     
-    var fullname : String {
-        get { return "\(firstname) \(lastname)"}
+    var fullname : String? {
+        get { return "\(firstname ?? "") \(lastname ?? "")" }
     }
     
-    init(uid: String, name: String, surname: String) {
+    var email : String? {
+        get {
+            return _email
+        }
+    }
+    
+    init(uid: String, firstname: String?, lastname: String?, email: String?) {
         _uid = uid
-        _firstname = name
-        _lastname = surname
+        _firstname = firstname
+        _lastname = lastname
+        _email = email
     }
 }

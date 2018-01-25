@@ -9,28 +9,26 @@
 import UIKit
 
 class ChatUserCell: UITableViewCell {
+    
+    var isMarked: Bool = false
 
     @IBOutlet weak var ivAvatar: RoundImageView!
     @IBOutlet weak var lblName: UILabel!
+    @IBOutlet weak var lblEmail: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        if (selected) {
-            let imageChecked = #imageLiteral(resourceName: "check-mark").resized(size: 30.0)
-            self.accessoryView = UIImageView(image: imageChecked)
-        }
-        else {
-            self.accessoryView = nil
-        }
-    }
     
     func updateUI(user: ChatUser) {
         self.lblName.text = user.fullname
+        self.lblEmail.text = user.email
     }
     
+    func mark(selected: Bool) {
+        let imageChecked = #imageLiteral(resourceName: "check-mark").resized(size: 30.0)
+        self.accessoryView = selected ? UIImageView(image: imageChecked) : nil
+        self.isMarked = selected
+    }
 }

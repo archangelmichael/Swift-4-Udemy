@@ -23,9 +23,18 @@ class ChatHomeVC: UIViewController {
         
         self.tvUsers.registerNib(ChatUserCell.self)
         self.tvUsers.dataSource = self
+        self.tvUsers.delegate = self
         
-        DataService.instance.getUsers { (snapshot) in
-            print(snapshot.debugDescription)
+        DataService.instance.getUsers { [unowned self] (usersData) in
+            print(usersData.debugDescription)
+            self.reloadUsers(data: usersData)
+        }
+    }
+    
+    func reloadUsers(data: [ChatUser]) {
+        DispatchQueue.main.async {
+            self.users = data
+            self.tvUsers.reloadData()
         }
     }
     
@@ -46,12 +55,20 @@ extension ChatHomeVC : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 30
+        return self.users.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ChatUserCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
-        
+        cell.updateUI(user: self.users[indexPath.row])
         return cell
+    }
+}
+
+extension ChatHomeVC : UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell: ChatUserCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
+        cell.mark(selected: cell.isMarked ? false : true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

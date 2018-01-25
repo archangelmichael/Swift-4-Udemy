@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseDatabase
 
-typealias DataFetchCompletion = (DataSnapshot) -> Void
+typealias FetchUsersCompletion = ([ChatUser]) -> Void
 
 class DataService: NSObject {
 
@@ -37,8 +37,10 @@ class DataService: NSObject {
         usersReference.child(uid).child("profile").setValue(profile)
     }
     
-    func getUsers(completion: @escaping DataFetchCompletion) {
-        usersReference.observe(DataEventType.value,
-                               with: completion)
+    func getUsers(completion: FetchUsersCompletion?) {
+        usersReference.observe(DataEventType.value) { (snapshot) in
+            let users = FirebaseDataParser.getChatUsers(snapshot: snapshot)
+            completion?(users)
+        }
     }
 }
