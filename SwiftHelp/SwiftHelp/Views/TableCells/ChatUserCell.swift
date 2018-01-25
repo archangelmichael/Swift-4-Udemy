@@ -20,7 +20,13 @@ class ChatUserCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
+        if (selected) {
+            let imageChecked = #imageLiteral(resourceName: "check-mark").resized(size: 30.0)
+            self.accessoryView = UIImageView(image: imageChecked)
+        }
+        else {
+            self.accessoryView = nil
+        }
     }
     
 }

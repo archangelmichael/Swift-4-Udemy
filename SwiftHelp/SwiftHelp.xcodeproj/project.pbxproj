@@ -12,6 +12,7 @@
 		19CA61A62019E57E0041A88E /* ChatUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19CA61A42019E57E0041A88E /* ChatUserCell.xib */; };
 		19CA61AA2019E7740041A88E /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CA61A92019E7740041A88E /* ReusableView.swift */; };
 		19CA61AE2019EC820041A88E /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CA61AD2019EC820041A88E /* RoundImageView.swift */; };
+		19CA61B2201A06B60041A88E /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CA61B1201A06B50041A88E /* UIImage+Resize.swift */; };
 		19CCE88720192ACA00497584 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 19CCE88620192ACA00497584 /* GoogleService-Info.plist */; };
 		19CCE88920192C5C00497584 /* ChatStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19CCE88820192C5C00497584 /* ChatStoryboard.storyboard */; };
 		19CCE88D2019308D00497584 /* ChatLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CCE88C2019308D00497584 /* ChatLoginVC.swift */; };
@@ -39,6 +40,7 @@
 		19CA61A42019E57E0041A88E /* ChatUserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatUserCell.xib; sourceTree = "<group>"; };
 		19CA61A92019E7740041A88E /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		19CA61AD2019EC820041A88E /* RoundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
+		19CA61B1201A06B50041A88E /* UIImage+Resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
 		19CCE88620192ACA00497584 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		19CCE88820192C5C00497584 /* ChatStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChatStoryboard.storyboard; sourceTree = "<group>"; };
 		19CCE88C2019308D00497584 /* ChatLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLoginVC.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 			children = (
 				19CCE897201946AC00497584 /* UIViewController+Alert.swift */,
 				19CA61A92019E7740041A88E /* ReusableView.swift */,
+				19CA61B1201A06B50041A88E /* UIImage+Resize.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				19DB53E6201087FC00CE6915 /* AppDelegate.swift in Sources */,
 				19CCE89520193D1C00497584 /* ChatHomeVC.swift in Sources */,
 				19CCE88D2019308D00497584 /* ChatLoginVC.swift in Sources */,
+				19CA61B2201A06B60041A88E /* UIImage+Resize.swift in Sources */,
 				19CA61A12019E29C0041A88E /* TransparentSearchBar.swift in Sources */,
 				19CCE89320193B7100497584 /* AuthService.swift in Sources */,
 			);
