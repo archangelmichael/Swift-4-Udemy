@@ -24,29 +24,27 @@ extension UIViewController : NavigationController {
                                        animated: Bool = true,
                                        completion: (() -> Void)? = nil,
                                        storyboardName: String? = nil) {
-        do {
-            var sourceStoryboard : UIStoryboard? = self.storyboard
-            if storyboardName != nil {
-                sourceStoryboard = UIStoryboard(name: storyboardName!, bundle: Bundle.main)
+        var sourceStoryboard : UIStoryboard? = self.storyboard
+        if storyboardName != nil {
+            sourceStoryboard = UIStoryboard(name: storyboardName!, bundle: Bundle.main)
+        }
+        
+        if let nextVCStoryboard = sourceStoryboard {
+            let nextVC = nextVCStoryboard.instantiateViewController(withIdentifier: T.defaultStoryboardIdentifier)
+            if push != nil && !push! {
+                self.present(nextVC, animated: animated, completion: completion)
             }
-            
-            if let nextVCStoryboard = sourceStoryboard {
-                let nextVC = nextVCStoryboard.instantiateViewController(withIdentifier: T.defaultStoryboardIdentifier)
-                if push != nil && !push! {
-                    self.present(nextVC, animated: animated, completion: completion)
+            else {
+                if let navVC = self.navigationController {
+                    navVC.pushViewController(nextVC, animated: animated)
                 }
                 else {
-                    if let navVC = self.navigationController {
-                        navVC.pushViewController(nextVC, animated: animated)
-                    }
-                    else {
-                        self.present(nextVC, animated: animated, completion: completion)
-                    }
+                    self.present(nextVC, animated: animated, completion: completion)
                 }
             }
         }
-        catch let error {
-            print("Invalid navigation \(error.localizedDescription)")
+        else {
+            print("Invalid navigation")
         }
     }
     

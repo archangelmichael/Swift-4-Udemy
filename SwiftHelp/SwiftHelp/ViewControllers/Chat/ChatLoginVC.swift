@@ -16,6 +16,10 @@ class ChatLoginVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tfEmail.delegate = self
+        self.tfPass.delegate = self
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        self.view.addGestureRecognizer(tap)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,11 +51,13 @@ class ChatLoginVC: UIViewController {
                     }
                     else {
                         self.showAlert(title: "Login error", message: message)
+                        self.tfEmail.becomeFirstResponder()
                     }
             })
         }
         else {
             self.showAlert(title: "Missing input")
+            self.tfEmail.becomeFirstResponder()
         }
     }
     
@@ -61,5 +67,24 @@ class ChatLoginVC: UIViewController {
     
     @IBAction func onRegister(_ sender: Any) {
         self.present(vc: ChatRegisterVC.self, push: false)
+    }
+    
+    @objc func handleTap(guesture: UITapGestureRecognizer) {
+        self.tfEmail.resignFirstResponder()
+        self.tfPass.resignFirstResponder()
+    }
+}
+
+extension ChatLoginVC : UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == self.tfEmail {
+            self.tfPass.becomeFirstResponder()
+        }
+        else {
+            self.tfPass.resignFirstResponder()
+            self.onLogin(UIButton())
+        }
+        
+        return true
     }
 }

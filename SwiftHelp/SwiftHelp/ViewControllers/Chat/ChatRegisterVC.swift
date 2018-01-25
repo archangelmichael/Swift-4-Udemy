@@ -15,16 +15,24 @@ class ChatRegisterVC: UIViewController {
     @IBOutlet weak var tfEmail: RoundTextField!
     @IBOutlet weak var tfPass: RoundTextField!
     
+    var textFields : [UITextField] = []
+    var focusedTextField : UITextField?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.textFields.append(contentsOf: [self.tfName, self.tfSurname, self.tfEmail, self.tfPass])
+        self.setTFDelegates()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        self.view.addGestureRecognizer(tap)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tfName.text = nil
-            self.tfSurname.text = nil
-            self.tfEmail.text = nil
-            self.tfPass.text = nil
+        self.tfSurname.text = nil
+        self.tfEmail.text = nil
+        self.tfPass.text = nil
     }
     
     @IBAction func onRegister(_ sender: Any) {
@@ -48,15 +56,52 @@ class ChatRegisterVC: UIViewController {
                     }
                     else {
                         self.showAlert(title: "Register error", message: message)
+                        self.tfName.becomeFirstResponder()
                     }
             })
         }
         else {
             self.showAlert(title: "Missing input")
+            self.tfName.becomeFirstResponder()
         }
     }
     
     @IBAction func onBack(_ sender: Any) {
         self.close()
+    }
+    
+    func setTFDelegates() {
+        for tf in self.textFields {
+            tf.delegate = self
+        }
+    }
+    
+    @objc func handleTap(guesture: UITapGestureRecognizer) {
+        if let tf = self.focusedTextField {
+            tf.resignFirstResponder()
+        }
+    }
+}
+
+extension ChatRegisterVC : UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.focusedTextField = textField
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if self.focusedTextField != nil {
+            if let tfIndex = self.textFields.index(of: textField),
+                tfIndex < self.textFields.count - 1 {
+                self.focusedTextField = self.textFields[tfIndex.advanced(by: 1)]
+                self.focusedTextField?.becomeFirstResponder()
+            }
+            else {
+                textField.resignFirstResponder()
+                self.focusedTextField = nil
+                self.onRegister(UIButton())
+            }
+        }
+        
+        return true
     }
 }
