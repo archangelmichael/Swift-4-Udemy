@@ -10,6 +10,8 @@ import UIKit
 import FirebaseAuth
 import FirebaseCore
 
+typealias AuthCompletion = (Bool, String?) -> Void
+
 class AuthService: NSObject {
     
     private static let _instance = AuthService()
@@ -24,7 +26,7 @@ class AuthService: NSObject {
         }
     }
     
-    func login(email:String, pass:String, completion: ((Bool, String?) -> Void)?) {
+    func login(email:String, pass:String, completion: AuthCompletion?) {
         Auth.auth().signIn(withEmail: email, password: pass) { [unowned self] (user, error) in
             if error != nil {
                 print("Login error \(error?.localizedDescription ?? "")")
@@ -42,7 +44,7 @@ class AuthService: NSObject {
         }
     }
     
-    func register(email:String, pass:String, completion: ((Bool, String?) -> Void)?) {
+    func register(email:String, pass:String, completion: AuthCompletion?) {
         Auth.auth().createUser(withEmail: email, password: pass) { (user, error) in
             if error != nil {
                 print("Register error \(error?.localizedDescription ?? "")")
