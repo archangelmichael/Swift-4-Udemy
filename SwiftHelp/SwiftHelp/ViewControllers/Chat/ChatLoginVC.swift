@@ -43,7 +43,7 @@ class ChatLoginVC: UIViewController {
             })
         }
         else {
-            print("Invalid login")
+            self.showAlert(title: "Missing input")
         }
     }
     
@@ -62,7 +62,7 @@ class ChatLoginVC: UIViewController {
             })
         }
         else {
-            print("Invalid login")
+            self.showAlert(title: "Missing input")
         }
     }
     

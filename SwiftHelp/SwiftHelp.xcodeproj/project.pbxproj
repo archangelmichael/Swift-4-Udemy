@@ -15,6 +15,7 @@
 		19CCE89320193B7100497584 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CCE89220193B7100497584 /* AuthService.swift */; };
 		19CCE89520193D1C00497584 /* ChatHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CCE89420193D1C00497584 /* ChatHomeVC.swift */; };
 		19CCE898201946AC00497584 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CCE897201946AC00497584 /* UIViewController+Alert.swift */; };
+		19CCE89A2019D73000497584 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CCE8992019D73000497584 /* DataService.swift */; };
 		19DB53E6201087FC00CE6915 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DB53E5201087FC00CE6915 /* AppDelegate.swift */; };
 		19DB53E8201087FC00CE6915 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DB53E7201087FC00CE6915 /* ViewController.swift */; };
 		19DB53EB201087FC00CE6915 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19DB53E9201087FC00CE6915 /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 		19CCE89220193B7100497584 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		19CCE89420193D1C00497584 /* ChatHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHomeVC.swift; sourceTree = "<group>"; };
 		19CCE897201946AC00497584 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
+		19CCE8992019D73000497584 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		19DB53E2201087FC00CE6915 /* SwiftHelp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftHelp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19DB53E5201087FC00CE6915 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19DB53E7201087FC00CE6915 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				19CCE89220193B7100497584 /* AuthService.swift */,
+				19CCE8992019D73000497584 /* DataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -309,12 +312,14 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-SwiftHelp/Pods-SwiftHelp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -334,6 +339,7 @@
 				19DB53FE2010A2B700CE6915 /* MaskVC.swift in Sources */,
 				19CCE891201935D500497584 /* RoundTextField.swift in Sources */,
 				19DB54042010DFF100CE6915 /* PropAnimVC.swift in Sources */,
+				19CCE89A2019D73000497584 /* DataService.swift in Sources */,
 				19CCE898201946AC00497584 /* UIViewController+Alert.swift in Sources */,
 				19DB53E6201087FC00CE6915 /* AppDelegate.swift in Sources */,
 				19CCE89520193D1C00497584 /* ChatHomeVC.swift in Sources */,

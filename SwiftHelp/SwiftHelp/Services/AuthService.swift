@@ -27,11 +27,11 @@ class AuthService: NSObject {
     }
     
     func login(email:String, pass:String, completion: AuthCompletion?) {
-        Auth.auth().signIn(withEmail: email, password: pass) { [unowned self] (user, error) in
+        Auth.auth().signIn(withEmail: email, password: pass) { (user, error) in
             if error != nil {
                 print("Login error \(error?.localizedDescription ?? "")")
                 if let errorCode = (error as NSError?)?.code, errorCode == AuthErrorCode.userNotFound.rawValue {
-                    self.register(email: email, pass: pass, completion: completion)
+                    completion?(false, error?.localizedDescription ?? "")
                 }
                 else {
                     completion?(false, error?.localizedDescription ?? "")
@@ -52,6 +52,7 @@ class AuthService: NSObject {
             }
             else {
                 print("Register done")
+                DataService.instance.saveUser(userID: user!.uid)
                 completion?(true, nil)
             }
         }
