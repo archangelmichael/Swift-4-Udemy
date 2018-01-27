@@ -190,6 +190,56 @@ car.driverName
 
 
 
+class Person {
+    var name : String
+    var age : Int
+    var gender : String?
+    
+    convenience init?(name: String) {
+        self.init(name: name, age: 0, gender: nil)
+    }
+    
+    convenience init?() {
+        self.init(name: "Unknown", age: 0, gender: nil)
+    }
+    
+    required init?(name: String, age: Int, gender: String? = nil) {
+        if name.isEmpty || age < 0 { return nil }
+        self.name = name
+        self.age = age
+        self.gender = gender
+    }
+    
+    func simpleDescription() {
+        if let gen = gender,
+            !gen.isEmpty {
+            print("\(self.name) is \(self.age) years old \(gen == "M" ? "Male" : "Female")")
+        }
+        else {
+            print("\(self.name) is \(self.age) years old")
+        }
+    }
+}
+
+class Child : Person {
+    convenience init?() {
+        self.init(name: "", age: 1, gender: "F")
+    }
+    
+    required init?(name: String, age: Int, gender: String?) {
+        super.init(name: name, age: age, gender: gender)
+        self.name = name
+        self.age = age
+    }
+}
+
+var people = [Person(), Person(name: "John"), Person(name: ""), Person(name:"Cris", age: 2), Person(name: "Eric", age: 3, gender: "M")]
+for person in people {
+    person?.simpleDescription()
+}
+
+
+
 
 
 
