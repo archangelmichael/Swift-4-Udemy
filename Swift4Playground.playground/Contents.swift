@@ -45,10 +45,10 @@ for num in implicitArr {
 }
 
 for (key, value) in implicitDict {
-    print("\(key), \(value) : \(implicitDict[key])")
+    print("\(key), \(value) : \(String(describing: implicitDict[key]))")
 }
 
-for var num in 0..<3 {
+for _ in 0..<3 {
     // Do something
 }
 
