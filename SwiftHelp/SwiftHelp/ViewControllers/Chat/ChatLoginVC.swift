@@ -42,10 +42,15 @@ class ChatLoginVC: UIViewController {
             email.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).count > 0,
             pass.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).count > 0 {
             
+            
+            let loadingVC = LoadingViewController()
+            self.addChildVC(loadingVC)
+            
             AuthService.instance.login(email: email,
                                        pass: pass,
                                        completion:
                 { [weak self] (success, message) in
+                    loadingVC.removeAsChild()
                     if success {
                         self?.login()
                     }
