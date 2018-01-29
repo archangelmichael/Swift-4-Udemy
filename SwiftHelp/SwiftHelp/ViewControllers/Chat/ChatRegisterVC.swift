@@ -50,13 +50,13 @@ class ChatRegisterVC: UIViewController {
                                           email:email,
                                           pass: pass,
                                           completion:
-                { [unowned self] (success, message) in
+                { [weak self] (success, message) in
                     if success {
-                        self.close()
+                        self?.close()
                     }
                     else {
-                        self.showAlert(title: "Register error", message: message)
-                        self.tfName.becomeFirstResponder()
+                        self?.showAlert(title: "Register error", message: message)
+                        self?.tfName.becomeFirstResponder()
                     }
             })
         }

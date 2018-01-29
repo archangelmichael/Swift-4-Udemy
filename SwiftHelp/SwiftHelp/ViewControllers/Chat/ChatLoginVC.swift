@@ -45,13 +45,13 @@ class ChatLoginVC: UIViewController {
             AuthService.instance.login(email: email,
                                        pass: pass,
                                        completion:
-                { [unowned self] (success, message) in
+                { [weak self] (success, message) in
                     if success {
-                        self.login()
+                        self?.login()
                     }
                     else {
-                        self.showAlert(title: "Login error", message: message)
-                        self.tfEmail.becomeFirstResponder()
+                        self?.showAlert(title: "Login error", message: message)
+                        self?.tfEmail.becomeFirstResponder()
                     }
             })
         }
@@ -62,6 +62,8 @@ class ChatLoginVC: UIViewController {
     }
     
     func login() {
+        self.tfEmail.resignFirstResponder()
+        self.tfPass.resignFirstResponder()
         self.present(vc: ChatHomeVC.self)
     }
     

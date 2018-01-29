@@ -27,8 +27,8 @@ class ChatHomeVC: UIViewController {
         self.tvUsers.dataSource = self
         self.tvUsers.delegate = self
         
-        DataService.instance.getUsers { [unowned self] (usersData) in
-            self.reloadUsers(data: usersData)
+        DataService.instance.getUsers { [weak self] (usersData) in
+            self?.reloadUsers(data: usersData)
         }
     }
     
