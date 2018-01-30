@@ -29,14 +29,12 @@
 		19CEA857201F7B8F000D4985 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CEA856201F7B8F000D4985 /* LoadingViewController.swift */; };
 		19CEA859201F7BF7000D4985 /* UIViewController+Child.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CEA858201F7BF7000D4985 /* UIViewController+Child.swift */; };
 		19DB53E6201087FC00CE6915 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DB53E5201087FC00CE6915 /* AppDelegate.swift */; };
-		19DB53E8201087FC00CE6915 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DB53E7201087FC00CE6915 /* ViewController.swift */; };
-		19DB53EB201087FC00CE6915 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19DB53E9201087FC00CE6915 /* Main.storyboard */; };
 		19DB53ED201087FC00CE6915 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19DB53EC201087FC00CE6915 /* Assets.xcassets */; };
 		19DB53F0201087FC00CE6915 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19DB53EE201087FC00CE6915 /* LaunchScreen.storyboard */; };
 		19DB53F92010971F00CE6915 /* PermanentMarker-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 19DB53F82010971F00CE6915 /* PermanentMarker-Regular.ttf */; };
-		19DB53FE2010A2B700CE6915 /* MaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DB53FD2010A2B700CE6915 /* MaskVC.swift */; };
 		D188B2C6A2F22F2FC19FE507 /* Pods_SwiftHelp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C917CDA233DADB6908343BFE /* Pods_SwiftHelp.framework */; };
 		F094E85D201FEFE40055D9D1 /* ViewAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F094E85C201FEFE40055D9D1 /* ViewAnimator.swift */; };
+		F094E85F201FF9FB0055D9D1 /* ViewMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = F094E85E201FF9FB0055D9D1 /* ViewMask.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,16 +62,14 @@
 		19CEA858201F7BF7000D4985 /* UIViewController+Child.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Child.swift"; sourceTree = "<group>"; };
 		19DB53E2201087FC00CE6915 /* SwiftHelp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftHelp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19DB53E5201087FC00CE6915 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		19DB53E7201087FC00CE6915 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		19DB53EA201087FC00CE6915 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		19DB53EC201087FC00CE6915 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		19DB53EF201087FC00CE6915 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		19DB53F1201087FC00CE6915 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19DB53F82010971F00CE6915 /* PermanentMarker-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PermanentMarker-Regular.ttf"; sourceTree = "<group>"; };
-		19DB53FD2010A2B700CE6915 /* MaskVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskVC.swift; sourceTree = "<group>"; };
 		5A48A0ED3CFF525E463FE0F8 /* Pods-SwiftHelp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftHelp.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftHelp/Pods-SwiftHelp.release.xcconfig"; sourceTree = "<group>"; };
 		C917CDA233DADB6908343BFE /* Pods_SwiftHelp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftHelp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F094E85C201FEFE40055D9D1 /* ViewAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAnimator.swift; sourceTree = "<group>"; };
+		F094E85E201FF9FB0055D9D1 /* ViewMask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewMask.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,7 +145,6 @@
 		19CCE88A20192CD900497584 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				19DB53E9201087FC00CE6915 /* Main.storyboard */,
 				19DB53EE201087FC00CE6915 /* LaunchScreen.storyboard */,
 				19CCE88820192C5C00497584 /* ChatStoryboard.storyboard */,
 			);
@@ -171,6 +166,7 @@
 			children = (
 				19CA61B7201A205B0041A88E /* FirebaseDataParser.swift */,
 				F094E85C201FEFE40055D9D1 /* ViewAnimator.swift */,
+				F094E85E201FF9FB0055D9D1 /* ViewMask.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -233,8 +229,6 @@
 			children = (
 				19CEA85A201F7C91000D4985 /* Common */,
 				19CCE88B2019307100497584 /* Chat */,
-				19DB53E7201087FC00CE6915 /* ViewController.swift */,
-				19DB53FD2010A2B700CE6915 /* MaskVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -316,7 +310,6 @@
 				19CA61A62019E57E0041A88E /* ChatUserCell.xib in Resources */,
 				19CCE88720192ACA00497584 /* GoogleService-Info.plist in Resources */,
 				19DB53F92010971F00CE6915 /* PermanentMarker-Regular.ttf in Resources */,
-				19DB53EB201087FC00CE6915 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,16 +380,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19DB53E8201087FC00CE6915 /* ViewController.swift in Sources */,
 				19CA61A52019E57E0041A88E /* ChatUserCell.swift in Sources */,
 				19CCE88F2019341700497584 /* RoundView.swift in Sources */,
-				19DB53FE2010A2B700CE6915 /* MaskVC.swift in Sources */,
 				19CA61B4201A086A0041A88E /* ChatUser.swift in Sources */,
 				19CA61B8201A205B0041A88E /* FirebaseDataParser.swift in Sources */,
 				19CA61B6201A0DD80041A88E /* ChatRegisterVC.swift in Sources */,
 				19CCE891201935D500497584 /* RoundTextField.swift in Sources */,
 				19CA61AE2019EC820041A88E /* RoundImageView.swift in Sources */,
 				19CA61AA2019E7740041A88E /* ReusableView.swift in Sources */,
+				F094E85F201FF9FB0055D9D1 /* ViewMask.swift in Sources */,
 				19CCE89A2019D73000497584 /* DataService.swift in Sources */,
 				19CCE898201946AC00497584 /* UIViewController+Alert.swift in Sources */,
 				19DB53E6201087FC00CE6915 /* AppDelegate.swift in Sources */,
@@ -415,14 +407,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		19DB53E9201087FC00CE6915 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				19DB53EA201087FC00CE6915 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		19DB53EE201087FC00CE6915 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
