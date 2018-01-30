@@ -34,6 +34,17 @@ class ChatLoginVC: UIViewController {
         if AuthService.instance.isUserLogged {
             self.login()
         }
+        else {
+            self.animate()
+        }
+    }
+    
+    func animate() {
+        let newView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+        newView.backgroundColor = UIColor.blue
+        self.view.addSubview(newView)
+        let animator = ViewAnimator(targetView: newView)
+        animator?.start()
     }
     
     @IBAction func onLogin(_ sender: Any) {
