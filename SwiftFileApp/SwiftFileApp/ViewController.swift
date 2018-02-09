@@ -47,15 +47,24 @@ class ViewController: UIViewController {
         }
     }
     
-    private var documentsFileUrlPath : URL? {
+    private var documentsHiddenUrlPath : URL? {
         get {
-            if let dirpath = documentsPDFsUrlPath {
-                let fileUrl = dirpath.appendingPathComponent(fullfilename)
+            if let filepath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+                let fileUrl = (filepath.appendingPathComponent("Hidden"))
                 return fileUrl
             }
             
             return nil
         }
+    }
+    
+    private func getDocumentsFileUrlPath(subdir: URL?) -> URL? {
+        if let dirpath = subdir {
+            let fileUrl = dirpath.appendingPathComponent(fullfilename)
+            return fileUrl
+        }
+            
+        return nil
     }
     
     override func viewDidLoad() {
@@ -74,13 +83,19 @@ class ViewController: UIViewController {
     }
     
     @IBAction func onStoreLocalfile(_ sender: Any) {
-        if let dirUrl = documentsPDFsUrlPath,
-            let fileUrl = documentsFileUrlPath,
+        if
+            let dirPDFsUrl = documentsPDFsUrlPath,
+            let filePDFUrl = getDocumentsFileUrlPath(subdir: dirPDFsUrl),
+            let dirHiddenUrl = documentsHiddenUrlPath,
+            let fileHiddenUrl = getDocumentsFileUrlPath(subdir: dirHiddenUrl),
             let fileData = getLocalFileData() {
             do {
-                try FileManager.default.createDirectory(at: dirUrl, withIntermediateDirectories: true, attributes: nil)
-                try fileData.write(to: fileUrl)
-                print("File storing completed")
+                try FileManager.default.createDirectory(at: dirPDFsUrl, withIntermediateDirectories: true, attributes: nil)
+                try fileData.write(to: filePDFUrl)
+                print("File storing at PDFs completed")
+                try FileManager.default.createDirectory(at: dirHiddenUrl, withIntermediateDirectories: true, attributes: nil)
+                try fileData.write(to: fileHiddenUrl)
+                print("File storing at Hidden completed")
             }
             catch let error {
                 print("Error storing local file : \(error.localizedDescription)")
@@ -92,7 +107,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func onLoadStoredFile(_ sender: Any) {
-        if let fileUrl = documentsFileUrlPath {
+        if let fileUrl = getDocumentsFileUrlPath(subdir: documentsPDFsUrlPath) {
             let fileReq = URLRequest(url: fileUrl)
             self.wvFile.loadRequest(fileReq)
         }
@@ -101,10 +116,53 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func onExportStoredFile(_ sender: Any) {
-        
+    @IBAction func onCheckForStoredFile(_ sender: Any) {
+        if let hiddenDirPath = documentsHiddenUrlPath {
+            let fileManager = FileManager.default
+            var isDir : ObjCBool = false
+            let fileExists = fileManager.fileExists(atPath: hiddenDirPath.path, isDirectory: &isDir)
+            if fileExists {
+                if isDir.boolValue {
+                    print("Hidden dir exists")
+                }
+                else {
+                    print("Hidden is not directory")
+                }
+            }
+            else {
+                print("File or dir does not exist")
+            }
+        }
     }
     
+    @IBAction func onExcludeHiddenDir(_ sender: Any) {
+        var hiddenDirPath = documentsHiddenUrlPath
+        if hiddenDirPath != nil {
+            let fileManager = FileManager.default
+            var isDir : ObjCBool = false
+            let fileExists = fileManager.fileExists(atPath: (hiddenDirPath?.path)!, isDirectory: &isDir)
+            if fileExists {
+                if isDir.boolValue {
+                    print("Hidden dir exists")
+                    do {
+                        var resourceValues = URLResourceValues()
+                        resourceValues.isExcludedFromBackup = true
+                        resourceValues.isHidden = true
+                        try hiddenDirPath?.setResourceValues(resourceValues)
+                        print("\(hiddenDirPath!.lastPathComponent) is excluded from backup")
+                    } catch let error as NSError {
+                        print("Error excluding \(hiddenDirPath!.lastPathComponent) from backup \(error)");
+                    }
+                }
+                else {
+                    print("Hidden is not directory")
+                }
+            }
+            else {
+                print("File or dir does not exist")
+            }
+        }
+    }
     
     private func getLocalFileData() -> Data? {
         do {
@@ -124,7 +182,7 @@ class ViewController: UIViewController {
     
     private func getStoredFileData(path: URL) -> Data? {
         do {
-            if let fileUrl = documentsFileUrlPath {
+            if let fileUrl = getDocumentsFileUrlPath(subdir: path) {
                 let fileData = try? Data.init(contentsOf: fileUrl)
                 return fileData
             }
