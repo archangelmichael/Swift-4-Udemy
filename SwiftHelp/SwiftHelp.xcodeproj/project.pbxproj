@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		194A58A02031BD6F00BB3F20 /* ChatSendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194A589F2031BD6F00BB3F20 /* ChatSendVC.swift */; };
+		194A58A22031C83000BB3F20 /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194A58A12031C83000BB3F20 /* FileHelper.swift */; };
 		19CA61A12019E29C0041A88E /* TransparentSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CA61A02019E29C0041A88E /* TransparentSearchBar.swift */; };
 		19CA61A52019E57E0041A88E /* ChatUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CA61A32019E57E0041A88E /* ChatUserCell.swift */; };
 		19CA61A62019E57E0041A88E /* ChatUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19CA61A42019E57E0041A88E /* ChatUserCell.xib */; };
@@ -39,6 +41,8 @@
 
 /* Begin PBXFileReference section */
 		109695181D8770DB413B0C0E /* Pods-SwiftHelp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftHelp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftHelp/Pods-SwiftHelp.debug.xcconfig"; sourceTree = "<group>"; };
+		194A589F2031BD6F00BB3F20 /* ChatSendVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatSendVC.swift; sourceTree = "<group>"; };
+		194A58A12031C83000BB3F20 /* FileHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
 		19CA61A02019E29C0041A88E /* TransparentSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentSearchBar.swift; sourceTree = "<group>"; };
 		19CA61A32019E57E0041A88E /* ChatUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUserCell.swift; sourceTree = "<group>"; };
 		19CA61A42019E57E0041A88E /* ChatUserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatUserCell.xib; sourceTree = "<group>"; };
@@ -157,6 +161,7 @@
 				19CCE88C2019308D00497584 /* ChatLoginVC.swift */,
 				19CCE89420193D1C00497584 /* ChatHomeVC.swift */,
 				19CA61B5201A0DD80041A88E /* ChatRegisterVC.swift */,
+				194A589F2031BD6F00BB3F20 /* ChatSendVC.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -167,6 +172,7 @@
 				19CA61B7201A205B0041A88E /* FirebaseDataParser.swift */,
 				F094E85C201FEFE40055D9D1 /* ViewAnimator.swift */,
 				F094E85E201FF9FB0055D9D1 /* ViewMask.swift */,
+				194A58A12031C83000BB3F20 /* FileHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -390,6 +396,7 @@
 				19CA61AA2019E7740041A88E /* ReusableView.swift in Sources */,
 				F094E85F201FF9FB0055D9D1 /* ViewMask.swift in Sources */,
 				19CCE89A2019D73000497584 /* DataService.swift in Sources */,
+				194A58A02031BD6F00BB3F20 /* ChatSendVC.swift in Sources */,
 				19CCE898201946AC00497584 /* UIViewController+Alert.swift in Sources */,
 				19DB53E6201087FC00CE6915 /* AppDelegate.swift in Sources */,
 				19CEA857201F7B8F000D4985 /* LoadingViewController.swift in Sources */,
@@ -398,6 +405,7 @@
 				19CCE88D2019308D00497584 /* ChatLoginVC.swift in Sources */,
 				19CA61BA201A372F0041A88E /* UIViewController+Navigation.swift in Sources */,
 				19CA61B2201A06B60041A88E /* UIImage+Resize.swift in Sources */,
+				194A58A22031C83000BB3F20 /* FileHelper.swift in Sources */,
 				19CEA859201F7BF7000D4985 /* UIViewController+Child.swift in Sources */,
 				19CA61A12019E29C0041A88E /* TransparentSearchBar.swift in Sources */,
 				19CCE89320193B7100497584 /* AuthService.swift in Sources */,
