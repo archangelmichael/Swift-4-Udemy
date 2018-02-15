@@ -9,8 +9,8 @@
 import UIKit
 import FirebaseAuth
 
-class ChatLoginVC: UIViewController {
-
+class ChatLoginVC: BackgroundViewController {
+    
     @IBOutlet weak var tfEmail: RoundTextField!
     @IBOutlet weak var tfPass: RoundTextField!
     
@@ -24,8 +24,8 @@ class ChatLoginVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.tfEmail.text = nil
-        self.tfPass.text = nil
+        self.tfEmail.text = "radi@abv.bg"
+        self.tfPass.text = "qwe123"
     }
     
     override func viewDidAppear(_ animated: Bool) {

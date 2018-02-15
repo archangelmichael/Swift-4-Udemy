@@ -8,17 +8,12 @@
 
 import UIKit
 
-class ChatHomeVC: UIViewController {
+class ChatHomeVC: BackgroundViewController {
     
     @IBOutlet weak var btnLogout: UIButton!
-    @IBOutlet weak var ivBackground: UIImageView!
-    
     @IBOutlet weak var ivPreview: UIImageView!
-    
-    @IBOutlet weak var svDefault: UIStackView!
+    @IBOutlet weak var svSelection: UIStackView!
     @IBOutlet weak var svPreview: UIStackView!
-    
-    
     
     private var users : [ChatUser] = [ChatUser]()
     private var selectedUsers : [String : ChatUser] = [String : ChatUser]()
@@ -26,12 +21,8 @@ class ChatHomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.updateUI()
-    }
-    
-    func updateUI() {
         self.btnLogout.contentEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10)
-        self.togglePreview(visible: false)
+        self.toggle()
     }
     
     @IBAction func onLogout(_ sender: Any) {
@@ -82,20 +73,27 @@ class ChatHomeVC: UIViewController {
     func showSelectedPicture() {
         if let image = self.selectedImage {
             self.ivPreview.image = image
+            self.toggle(hideSelection: false, hidePreview: true)
+        }
+        else {
+            self.clearSelectedImage()
+            self.showAlert(title: "No image selected")
         }
     }
     
     @IBAction func onRemove(_ sender: Any) {
-        self.selectedImage = nil
-        self.ivPreview.image = nil
-        self.ivPreview.isHidden = false
+        self.clearSelectedImage()
     }
     
     @IBAction func onPreview(_ sender: Any) {
         if let img = self.selectedImage {
-            self.togglePreview(visible: true)
-            self.ivBackground.image = img
-            self.ivPreview.isHidden = true
+            ImageHelper.tempBackgroundImg = img
+            self.refreshTempBackground()
+            self.toggle(hideSelection: true, hidePreview: false)
+            }
+        else {
+            self.clearSelectedImage()
+            self.showAlert(title: "No image selected")
         }
     }
     
@@ -103,26 +101,48 @@ class ChatHomeVC: UIViewController {
         if let img = self.selectedImage {
             self.present(vc: ChatSendVC.self)
         }
+        else {
+            self.clearSelectedImage()
+            self.showAlert(title: "No image selected")
+        }
     }
     
     @IBAction func onClear(_ sender: Any) {
-        let storedBackground = FileHelper.getDefaultBackground()
-        self.ivBackground.image = storedBackground
-        
-        self.togglePreview(visible: false)
-        self.selectedImage = nil
-        self.ivPreview.image = nil
+        self.clearSelectedImage()
     }
     
     @IBAction func onSave(_ sender: Any) {
-        // TODO: Store selected image as default image
-        self.togglePreview(visible: false)
+        if let img = self.selectedImage {
+            if FileHelper.saveAppBackground(image: img) {
+                ImageHelper.backgroundImg = img
+                ImageHelper.tempBackgroundImg = nil
+                self.clearSelectedImage()
+            }
+            else {
+                self.clearSelectedImage()
+                self.showAlert(title: "Error storing selected image")
+            }
+        }
+        else {
+            self.clearSelectedImage()
+            self.showAlert(title: "No image selected")
+        }
     }
     
-    func togglePreview(visible: Bool) {
-        self.svDefault.isHidden = visible
-        self.svPreview.isHidden = !visible
-        self.ivPreview.isHidden = !visible
+    func clearSelectedImage() {
+        ImageHelper.tempBackgroundImg = nil
+        self.toggle()
+        self.selectedImage = nil
+        self.ivPreview.image = nil
+        self.refreshBackground()
+    }
+    
+    func toggle(hideSelection: Bool = true,
+                hidePreview: Bool = true) {
+        self.svSelection.isHidden = hideSelection
+        self.ivPreview.isHidden = hideSelection
+            
+        self.svPreview.isHidden = hidePreview
     }
 }
 

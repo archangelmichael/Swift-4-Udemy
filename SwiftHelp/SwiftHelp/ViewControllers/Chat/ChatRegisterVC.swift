@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChatRegisterVC: UIViewController {
+class ChatRegisterVC: BackgroundViewController {
 
     @IBOutlet weak var tfName: RoundTextField!
     @IBOutlet weak var tfSurname: RoundTextField!
@@ -20,7 +20,6 @@ class ChatRegisterVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.textFields.append(contentsOf: [self.tfName, self.tfSurname, self.tfEmail, self.tfPass])
         self.setTFDelegates()
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChatSendVC: UIViewController {
+class ChatSendVC: BackgroundViewController {
 
     @IBOutlet weak var sbUsers: TransparentSearchBar!
     @IBOutlet weak var tvUsers: UITableView!

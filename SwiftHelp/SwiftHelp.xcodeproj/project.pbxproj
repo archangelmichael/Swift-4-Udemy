@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		194A58A02031BD6F00BB3F20 /* ChatSendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194A589F2031BD6F00BB3F20 /* ChatSendVC.swift */; };
 		194A58A22031C83000BB3F20 /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194A58A12031C83000BB3F20 /* FileHelper.swift */; };
+		1955F48C2035BBCD005B496F /* BackgroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1955F48B2035BBCD005B496F /* BackgroundViewController.swift */; };
+		1955F4902035C65A005B496F /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1955F48F2035C65A005B496F /* ImageHelper.swift */; };
 		19CA61A12019E29C0041A88E /* TransparentSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CA61A02019E29C0041A88E /* TransparentSearchBar.swift */; };
 		19CA61A52019E57E0041A88E /* ChatUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CA61A32019E57E0041A88E /* ChatUserCell.swift */; };
 		19CA61A62019E57E0041A88E /* ChatUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19CA61A42019E57E0041A88E /* ChatUserCell.xib */; };
@@ -43,6 +45,8 @@
 		109695181D8770DB413B0C0E /* Pods-SwiftHelp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftHelp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftHelp/Pods-SwiftHelp.debug.xcconfig"; sourceTree = "<group>"; };
 		194A589F2031BD6F00BB3F20 /* ChatSendVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatSendVC.swift; sourceTree = "<group>"; };
 		194A58A12031C83000BB3F20 /* FileHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
+		1955F48B2035BBCD005B496F /* BackgroundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BackgroundViewController.swift; path = Chat/BackgroundViewController.swift; sourceTree = "<group>"; };
+		1955F48F2035C65A005B496F /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 		19CA61A02019E29C0041A88E /* TransparentSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentSearchBar.swift; sourceTree = "<group>"; };
 		19CA61A32019E57E0041A88E /* ChatUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUserCell.swift; sourceTree = "<group>"; };
 		19CA61A42019E57E0041A88E /* ChatUserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatUserCell.xib; sourceTree = "<group>"; };
@@ -173,6 +177,7 @@
 				F094E85C201FEFE40055D9D1 /* ViewAnimator.swift */,
 				F094E85E201FF9FB0055D9D1 /* ViewMask.swift */,
 				194A58A12031C83000BB3F20 /* FileHelper.swift */,
+				1955F48F2035C65A005B496F /* ImageHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -235,6 +240,7 @@
 			children = (
 				19CEA85A201F7C91000D4985 /* Common */,
 				19CCE88B2019307100497584 /* Chat */,
+				1955F48B2035BBCD005B496F /* BackgroundViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -386,6 +392,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1955F48C2035BBCD005B496F /* BackgroundViewController.swift in Sources */,
 				19CA61A52019E57E0041A88E /* ChatUserCell.swift in Sources */,
 				19CCE88F2019341700497584 /* RoundView.swift in Sources */,
 				19CA61B4201A086A0041A88E /* ChatUser.swift in Sources */,
@@ -401,6 +408,7 @@
 				19DB53E6201087FC00CE6915 /* AppDelegate.swift in Sources */,
 				19CEA857201F7B8F000D4985 /* LoadingViewController.swift in Sources */,
 				F094E85D201FEFE40055D9D1 /* ViewAnimator.swift in Sources */,
+				1955F4902035C65A005B496F /* ImageHelper.swift in Sources */,
 				19CCE89520193D1C00497584 /* ChatHomeVC.swift in Sources */,
 				19CCE88D2019308D00497584 /* ChatLoginVC.swift in Sources */,
 				19CA61BA201A372F0041A88E /* UIViewController+Navigation.swift in Sources */,
