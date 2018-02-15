@@ -26,12 +26,8 @@ class BackgroundViewController: UIViewController {
         super.viewWillAppear(animated)
         self.refreshBackground()
     }
-
-    func refreshTempBackground() {
-        backgroundView?.image = ImageHelper.tempBackgroundImg
-    }
     
     func refreshBackground() {
-        backgroundView?.image = ImageHelper.backgroundImg
+        backgroundView?.image = ImageHelper.getAppBackground()
     }
 }

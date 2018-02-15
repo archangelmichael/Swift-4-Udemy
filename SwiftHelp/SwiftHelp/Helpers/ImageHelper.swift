@@ -9,28 +9,34 @@
 import UIKit
 
 class ImageHelper: NSObject {
-    private static var _backgroundImg:  UIImage?
-    private static var _tempBackgroundImg: UIImage?
-    
-    static var backgroundImg: UIImage? {
-        set{
-            _backgroundImg = newValue
+    private static let backgroundName = "background_name"
+
+    static func setAppBackground(image: UIImage?,
+                                 name: String?) -> Bool {
+        guard let validImage = image,
+            let validName = name else {
+            return false
         }
-        get {
-            if _backgroundImg == nil {
-                _backgroundImg = FileHelper.getAppBackground()
-            }
-            
-            return _backgroundImg
+        
+        let isImageStored = FileHelper.storeBackgroundImage(image: validImage,
+                                                            name: validName)
+        if isImageStored {
+            let userDefaults = UserDefaults.standard
+            userDefaults.set(validName, forKey: backgroundName)
+            return userDefaults.synchronize()
         }
+        
+        return false
     }
     
-    static var tempBackgroundImg : UIImage? {
-        set {
-            _tempBackgroundImg = newValue
+    static func getAppBackground() -> UIImage? {
+        let userDefaults = UserDefaults.standard
+        if let imgName = userDefaults.object(forKey: backgroundName) as? String {
+            if let storedImg = FileHelper.getStoredBackgroundImage(name: imgName) {
+                return storedImg
+            }
         }
-        get {
-            return _tempBackgroundImg
-        }
+        
+        return FileHelper.getDefaultBackground()
     }
 }

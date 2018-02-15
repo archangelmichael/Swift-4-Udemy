@@ -10,13 +10,13 @@ import UIKit
 
 class ChatSendVC: BackgroundViewController {
 
-    @IBOutlet weak var sbUsers: TransparentSearchBar!
     @IBOutlet weak var tvUsers: UITableView!
     @IBOutlet weak var btnSend: UIButton!
     
+    public var selectedImage : UIImage!
+    
     private var users : [ChatUser] = [ChatUser]()
     private var selectedUsers : [String : ChatUser] = [String : ChatUser]()
-    private var selectedImage : UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()

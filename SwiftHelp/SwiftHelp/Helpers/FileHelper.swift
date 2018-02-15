@@ -10,37 +10,35 @@ import UIKit
 
 class FileHelper: NSObject {
     private static let DefaultBackgroundFileName = "login-background"
-    private static let BackgroundFileName = "background"
     private static let BackgroundFileType = "png"
     
-    static func saveAppBackground(image: UIImage?) -> Bool {
-        if let storedImgUrl = getImgFileUrl(name: BackgroundFileName, type: BackgroundFileType) {
-            if let img = image {
-                if let imgData = UIImagePNGRepresentation(img) as NSData? {
-                    do {
-                        imgData.write(toFile: storedImgUrl.path, atomically: true)
-                        return true
-                    }
-                    catch let error {
-                        print("Error storing background : \(error.localizedDescription)")
-                    }
-                }
+    static func storeBackgroundImage(image: UIImage?,
+                                     name: String?,
+                                     type: String? = BackgroundFileType) -> Bool {
+        guard let validImage = image,
+            let validName = name,
+            let validType = type else {
+            return false
+        }
+        
+        if let storedImgUrl = getImgFileUrl(name: validName, type: validType) {
+            if let imgData = UIImagePNGRepresentation(validImage) as NSData? {
+                imgData.write(toFile: storedImgUrl.path, atomically: true)
+                return true
             }
         }
         
         return false
     }
     
-    static func getAppBackground() -> UIImage? {
-        if let storedImg = getStoredBackground() {
-            return storedImg
+    static func getStoredBackgroundImage(name: String?,
+                                         type: String? = BackgroundFileType) -> UIImage? {
+        guard let validName = name,
+            let validType = type else {
+                return nil
         }
         
-        return getDefaultBackground()
-    }
-    
-    private static func getStoredBackground() -> UIImage? {
-        if let storedImgUrl = getImgFileUrl(name: BackgroundFileName, type: BackgroundFileType) {
+        if let storedImgUrl = getImgFileUrl(name: validName, type: validType) {
             if let image = UIImage(named: storedImgUrl.path) {
                 return image
             }
@@ -49,7 +47,7 @@ class FileHelper: NSObject {
         return nil
     }
     
-    private static func getDefaultBackground() -> UIImage? {
+    public static func getDefaultBackground() -> UIImage? {
         return UIImage(named: DefaultBackgroundFileName)
     }
     

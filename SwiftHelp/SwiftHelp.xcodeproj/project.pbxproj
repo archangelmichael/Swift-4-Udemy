@@ -11,7 +11,8 @@
 		194A58A22031C83000BB3F20 /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194A58A12031C83000BB3F20 /* FileHelper.swift */; };
 		1955F48C2035BBCD005B496F /* BackgroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1955F48B2035BBCD005B496F /* BackgroundViewController.swift */; };
 		1955F4902035C65A005B496F /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1955F48F2035C65A005B496F /* ImageHelper.swift */; };
-		19CA61A12019E29C0041A88E /* TransparentSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CA61A02019E29C0041A88E /* TransparentSearchBar.swift */; };
+		1955F4922035CE0B005B496F /* ChatBackgroundPreviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1955F4912035CE0B005B496F /* ChatBackgroundPreviewVC.swift */; };
+		1955F4942035D117005B496F /* NavigationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1955F4932035D117005B496F /* NavigationHelper.swift */; };
 		19CA61A52019E57E0041A88E /* ChatUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CA61A32019E57E0041A88E /* ChatUserCell.swift */; };
 		19CA61A62019E57E0041A88E /* ChatUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19CA61A42019E57E0041A88E /* ChatUserCell.xib */; };
 		19CA61AA2019E7740041A88E /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CA61A92019E7740041A88E /* ReusableView.swift */; };
@@ -47,7 +48,8 @@
 		194A58A12031C83000BB3F20 /* FileHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
 		1955F48B2035BBCD005B496F /* BackgroundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BackgroundViewController.swift; path = Chat/BackgroundViewController.swift; sourceTree = "<group>"; };
 		1955F48F2035C65A005B496F /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
-		19CA61A02019E29C0041A88E /* TransparentSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentSearchBar.swift; sourceTree = "<group>"; };
+		1955F4912035CE0B005B496F /* ChatBackgroundPreviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBackgroundPreviewVC.swift; sourceTree = "<group>"; };
+		1955F4932035D117005B496F /* NavigationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHelper.swift; sourceTree = "<group>"; };
 		19CA61A32019E57E0041A88E /* ChatUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUserCell.swift; sourceTree = "<group>"; };
 		19CA61A42019E57E0041A88E /* ChatUserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatUserCell.xib; sourceTree = "<group>"; };
 		19CA61A92019E7740041A88E /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
@@ -115,7 +117,6 @@
 				19CA61A22019E54C0041A88E /* TableCells */,
 				19CCE88E2019341700497584 /* RoundView.swift */,
 				19CCE890201935D500497584 /* RoundTextField.swift */,
-				19CA61A02019E29C0041A88E /* TransparentSearchBar.swift */,
 				19CA61AD2019EC820041A88E /* RoundImageView.swift */,
 			);
 			path = Views;
@@ -166,6 +167,7 @@
 				19CCE89420193D1C00497584 /* ChatHomeVC.swift */,
 				19CA61B5201A0DD80041A88E /* ChatRegisterVC.swift */,
 				194A589F2031BD6F00BB3F20 /* ChatSendVC.swift */,
+				1955F4912035CE0B005B496F /* ChatBackgroundPreviewVC.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -178,6 +180,7 @@
 				F094E85E201FF9FB0055D9D1 /* ViewMask.swift */,
 				194A58A12031C83000BB3F20 /* FileHelper.swift */,
 				1955F48F2035C65A005B496F /* ImageHelper.swift */,
+				1955F4932035D117005B496F /* NavigationHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -413,9 +416,10 @@
 				19CCE88D2019308D00497584 /* ChatLoginVC.swift in Sources */,
 				19CA61BA201A372F0041A88E /* UIViewController+Navigation.swift in Sources */,
 				19CA61B2201A06B60041A88E /* UIImage+Resize.swift in Sources */,
+				1955F4922035CE0B005B496F /* ChatBackgroundPreviewVC.swift in Sources */,
 				194A58A22031C83000BB3F20 /* FileHelper.swift in Sources */,
 				19CEA859201F7BF7000D4985 /* UIViewController+Child.swift in Sources */,
-				19CA61A12019E29C0041A88E /* TransparentSearchBar.swift in Sources */,
+				1955F4942035D117005B496F /* NavigationHelper.swift in Sources */,
 				19CCE89320193B7100497584 /* AuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
