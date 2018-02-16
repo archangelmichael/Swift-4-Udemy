@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ChatImageViewCell" id="gTV-IL-0wX" customClass="ChatImageViewCell" customModule="SwiftHelp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="99" height="97"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="99" height="97"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login-background" translatesAutoresizingMaskIntoConstraints="NO" id="Ijc-VK-UZG">
+                        <rect key="frame" x="0.0" y="0.0" width="99" height="97"/>
+                    </imageView>
+                    <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7M3-Ty-cHz">
+                        <rect key="frame" x="0.0" y="0.0" width="99" height="97"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by Radi" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="ZMw-RX-uPw">
+                                <rect key="frame" x="0.0" y="75.5" width="99" height="21.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ZMw-RX-uPw" firstAttribute="leading" secondItem="7M3-Ty-cHz" secondAttribute="leading" id="1Wd-ob-ouh"/>
+                            <constraint firstAttribute="bottom" secondItem="ZMw-RX-uPw" secondAttribute="bottom" id="SkW-TU-jO3"/>
+                            <constraint firstAttribute="trailing" secondItem="ZMw-RX-uPw" secondAttribute="trailing" id="uhZ-5t-xyB"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="7M3-Ty-cHz" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" id="7Oa-DP-jAj"/>
+                <constraint firstAttribute="bottom" secondItem="Ijc-VK-UZG" secondAttribute="bottom" id="8zc-gz-U15"/>
+                <constraint firstItem="Ijc-VK-UZG" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="As7-F6-qRE"/>
+                <constraint firstItem="7M3-Ty-cHz" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Fdi-h4-xcw"/>
+                <constraint firstItem="7M3-Ty-cHz" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="H5Z-bN-RaG"/>
+                <constraint firstAttribute="trailing" secondItem="Ijc-VK-UZG" secondAttribute="trailing" id="O2t-A8-oJZ"/>
+                <constraint firstAttribute="trailing" secondItem="7M3-Ty-cHz" secondAttribute="trailing" id="Rny-z7-tRe"/>
+                <constraint firstAttribute="bottom" secondItem="7M3-Ty-cHz" secondAttribute="bottom" id="YtG-ST-9I3"/>
+                <constraint firstItem="7M3-Ty-cHz" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="d69-Aw-pVK"/>
+                <constraint firstItem="Ijc-VK-UZG" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="gif-aE-Cf0"/>
+                <constraint firstAttribute="trailing" secondItem="7M3-Ty-cHz" secondAttribute="trailing" id="syc-4H-kvQ"/>
+                <constraint firstAttribute="bottom" secondItem="7M3-Ty-cHz" secondAttribute="bottom" id="u4h-lW-8rB"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="99" height="97"/>
+            <connections>
+                <outlet property="ivAvatar" destination="Ijc-VK-UZG" id="RVp-da-2Kc"/>
+                <outlet property="lblAuthor" destination="ZMw-RX-uPw" id="LvR-lu-NPq"/>
+            </connections>
+            <point key="canvasLocation" x="-169.5" y="-101.5"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="login-background" width="5120" height="3200"/>
+    </resources>
+</document>

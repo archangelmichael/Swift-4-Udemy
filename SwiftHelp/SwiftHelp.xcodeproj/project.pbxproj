@@ -13,6 +13,9 @@
 		1955F4902035C65A005B496F /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1955F48F2035C65A005B496F /* ImageHelper.swift */; };
 		1955F4922035CE0B005B496F /* ChatBackgroundPreviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1955F4912035CE0B005B496F /* ChatBackgroundPreviewVC.swift */; };
 		1955F4942035D117005B496F /* NavigationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1955F4932035D117005B496F /* NavigationHelper.swift */; };
+		1960D0622036C8D200C29988 /* ChatImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1960D0602036C8D200C29988 /* ChatImageViewCell.swift */; };
+		1960D0632036C8D200C29988 /* ChatImageViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1960D0612036C8D200C29988 /* ChatImageViewCell.xib */; };
+		1960D0652036CD3000C29988 /* ChatTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1960D0642036CD3000C29988 /* ChatTheme.swift */; };
 		19CA61A52019E57E0041A88E /* ChatUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CA61A32019E57E0041A88E /* ChatUserCell.swift */; };
 		19CA61A62019E57E0041A88E /* ChatUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19CA61A42019E57E0041A88E /* ChatUserCell.xib */; };
 		19CA61AA2019E7740041A88E /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CA61A92019E7740041A88E /* ReusableView.swift */; };
@@ -46,10 +49,13 @@
 		109695181D8770DB413B0C0E /* Pods-SwiftHelp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftHelp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftHelp/Pods-SwiftHelp.debug.xcconfig"; sourceTree = "<group>"; };
 		194A589F2031BD6F00BB3F20 /* ChatSendVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatSendVC.swift; sourceTree = "<group>"; };
 		194A58A12031C83000BB3F20 /* FileHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
-		1955F48B2035BBCD005B496F /* BackgroundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BackgroundViewController.swift; path = Chat/BackgroundViewController.swift; sourceTree = "<group>"; };
+		1955F48B2035BBCD005B496F /* BackgroundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundViewController.swift; sourceTree = "<group>"; };
 		1955F48F2035C65A005B496F /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 		1955F4912035CE0B005B496F /* ChatBackgroundPreviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBackgroundPreviewVC.swift; sourceTree = "<group>"; };
 		1955F4932035D117005B496F /* NavigationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHelper.swift; sourceTree = "<group>"; };
+		1960D0602036C8D200C29988 /* ChatImageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatImageViewCell.swift; sourceTree = "<group>"; };
+		1960D0612036C8D200C29988 /* ChatImageViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatImageViewCell.xib; sourceTree = "<group>"; };
+		1960D0642036CD3000C29988 /* ChatTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTheme.swift; sourceTree = "<group>"; };
 		19CA61A32019E57E0041A88E /* ChatUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUserCell.swift; sourceTree = "<group>"; };
 		19CA61A42019E57E0041A88E /* ChatUserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatUserCell.xib; sourceTree = "<group>"; };
 		19CA61A92019E7740041A88E /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
@@ -102,6 +108,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		1960D05F2036C8A100C29988 /* CollectionCells */ = {
+			isa = PBXGroup;
+			children = (
+				1960D0602036C8D200C29988 /* ChatImageViewCell.swift */,
+				1960D0612036C8D200C29988 /* ChatImageViewCell.xib */,
+			);
+			path = CollectionCells;
+			sourceTree = "<group>";
+		};
 		19CA61A22019E54C0041A88E /* TableCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +129,7 @@
 		19CCE8822019299A00497584 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1960D05F2036C8A100C29988 /* CollectionCells */,
 				19CA61A22019E54C0041A88E /* TableCells */,
 				19CCE88E2019341700497584 /* RoundView.swift */,
 				19CCE890201935D500497584 /* RoundTextField.swift */,
@@ -126,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				19CA61B3201A086A0041A88E /* ChatUser.swift */,
+				1960D0642036CD3000C29988 /* ChatTheme.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -188,6 +205,7 @@
 		19CEA85A201F7C91000D4985 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				1955F48B2035BBCD005B496F /* BackgroundViewController.swift */,
 				19CEA856201F7B8F000D4985 /* LoadingViewController.swift */,
 			);
 			path = Common;
@@ -243,7 +261,6 @@
 			children = (
 				19CEA85A201F7C91000D4985 /* Common */,
 				19CCE88B2019307100497584 /* Chat */,
-				1955F48B2035BBCD005B496F /* BackgroundViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -323,6 +340,7 @@
 				19CCE88920192C5C00497584 /* ChatStoryboard.storyboard in Resources */,
 				19DB53ED201087FC00CE6915 /* Assets.xcassets in Resources */,
 				19CA61A62019E57E0041A88E /* ChatUserCell.xib in Resources */,
+				1960D0632036C8D200C29988 /* ChatImageViewCell.xib in Resources */,
 				19CCE88720192ACA00497584 /* GoogleService-Info.plist in Resources */,
 				19DB53F92010971F00CE6915 /* PermanentMarker-Regular.ttf in Resources */,
 			);
@@ -400,6 +418,8 @@
 				19CCE88F2019341700497584 /* RoundView.swift in Sources */,
 				19CA61B4201A086A0041A88E /* ChatUser.swift in Sources */,
 				19CA61B8201A205B0041A88E /* FirebaseDataParser.swift in Sources */,
+				1960D0652036CD3000C29988 /* ChatTheme.swift in Sources */,
+				1960D0622036C8D200C29988 /* ChatImageViewCell.swift in Sources */,
 				19CA61B6201A0DD80041A88E /* ChatRegisterVC.swift in Sources */,
 				19CCE891201935D500497584 /* RoundTextField.swift in Sources */,
 				19CA61AE2019EC820041A88E /* RoundImageView.swift in Sources */,

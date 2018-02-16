@@ -206,10 +206,10 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UaV-eO-wof">
-                                        <rect key="frame" x="20" y="10" width="50" height="50"/>
+                                        <rect key="frame" x="20" y="10" width="44" height="44"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="SbS-WK-CKN"/>
-                                            <constraint firstAttribute="height" constant="50" id="bfV-JF-AnM"/>
+                                            <constraint firstAttribute="width" constant="44" id="SbS-WK-CKN"/>
+                                            <constraint firstAttribute="height" constant="44" id="bfV-JF-AnM"/>
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="logout">
@@ -229,12 +229,61 @@
                                             <action selector="onTakePicture:" destination="2tJ-bo-A8F" eventType="touchUpInside" id="9J0-4J-SZM"/>
                                         </connections>
                                     </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="45m-Qm-yFY">
+                                        <rect key="frame" x="20" y="587" width="335" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cXJ-gk-4qO">
+                                                <rect key="frame" x="0.0" y="0.0" width="167.5" height="40"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
+                                                <state key="normal" title="My Themes">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <state key="highlighted">
+                                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="onMyThemes:" destination="2tJ-bo-A8F" eventType="touchUpInside" id="dmp-I0-ngb"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yeP-jd-SzS">
+                                                <rect key="frame" x="167.5" y="0.0" width="167.5" height="40"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
+                                                <state key="normal" title="Shared Themes">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <state key="highlighted">
+                                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="onSharedThemes:" destination="2tJ-bo-A8F" eventType="touchUpInside" id="01U-Rv-jCB"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qIo-SB-Xns">
+                                        <rect key="frame" x="20" y="60" width="335" height="519"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="P6u-uZ-3i7">
+                                            <size key="itemSize" width="50" height="50"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells/>
+                                    </collectionView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="45m-Qm-yFY" secondAttribute="trailing" constant="20" id="2kO-ht-5Lh"/>
                                     <constraint firstItem="MxA-4Q-CY3" firstAttribute="top" secondItem="kxY-1H-s7S" secondAttribute="top" constant="10" id="6Sc-9n-9YQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="45m-Qm-yFY" secondAttribute="bottom" constant="20" id="FWo-Ev-qfi"/>
+                                    <constraint firstItem="qIo-SB-Xns" firstAttribute="top" secondItem="kxY-1H-s7S" secondAttribute="top" constant="60" id="RO9-aw-vzm"/>
+                                    <constraint firstAttribute="trailing" secondItem="qIo-SB-Xns" secondAttribute="trailing" constant="20" id="XCD-qk-RJn"/>
                                     <constraint firstItem="UaV-eO-wof" firstAttribute="top" secondItem="kxY-1H-s7S" secondAttribute="top" constant="10" id="ZBj-9m-4Pb"/>
+                                    <constraint firstItem="45m-Qm-yFY" firstAttribute="leading" secondItem="kxY-1H-s7S" secondAttribute="leading" constant="20" id="dNQ-Ck-kCb"/>
                                     <constraint firstItem="UaV-eO-wof" firstAttribute="leading" secondItem="kxY-1H-s7S" secondAttribute="leading" constant="20" id="ddh-IC-acT"/>
+                                    <constraint firstItem="qIo-SB-Xns" firstAttribute="leading" secondItem="kxY-1H-s7S" secondAttribute="leading" constant="20" id="skw-9x-AmW"/>
+                                    <constraint firstItem="45m-Qm-yFY" firstAttribute="top" secondItem="qIo-SB-Xns" secondAttribute="bottom" constant="8" id="u3K-dK-gfm"/>
                                     <constraint firstAttribute="trailing" secondItem="MxA-4Q-CY3" secondAttribute="trailing" constant="20" id="y8h-nf-htN"/>
                                 </constraints>
                             </view>
@@ -258,6 +307,7 @@
                     </view>
                     <connections>
                         <outlet property="btnLogout" destination="UaV-eO-wof" id="kig-ho-bAU"/>
+                        <outlet property="cvImages" destination="qIo-SB-Xns" id="swr-Wd-XTH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kqo-Rv-WaJ" userLabel="First Responder" sceneMemberID="firstResponder"/>

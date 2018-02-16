@@ -10,6 +10,7 @@ import UIKit
 import FirebaseDatabase
 
 typealias FetchUsersCompletion = ([ChatUser]) -> Void
+typealias FetchThemesCompletion = ([ChatTheme]) -> Void
 
 class DataService: NSObject {
 
@@ -27,6 +28,10 @@ class DataService: NSObject {
         return dbReference.child("users")
     }
     
+    private var themesReference: DatabaseReference {
+        return dbReference.child("themes")
+    }
+    
     func saveUser(uid: String,
                   firstname: String?,
                   lastname: String?,
@@ -41,6 +46,20 @@ class DataService: NSObject {
         usersReference.observe(DataEventType.value) { (snapshot) in
             let users = FirebaseDataParser.getChatUsers(snapshot: snapshot)
             completion?(users)
+        }
+    }
+    
+    func saveTheme(author: String?,
+                   url: String?) {
+        let theme = ["author" : author,
+                     "url" : url]
+        themesReference.setValue(theme)
+    }
+    
+    func getThemes(completion: FetchThemesCompletion?) {
+        themesReference.observe(DataEventType.value) { (snapshot) in
+            let themes = FirebaseDataParser.getChatThemes(snapshot: snapshot)
+            completion?(themes)
         }
     }
 }

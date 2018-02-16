@@ -10,15 +10,45 @@ import UIKit
 
 class ChatHomeVC: BackgroundViewController {
     
-    @IBOutlet weak var btnLogout: UIButton!
+    enum ThemeCategory {
+        case mine, shared
+    }
     
-    private var users : [ChatUser] = [ChatUser]()
-    private var selectedUsers : [String : ChatUser] = [String : ChatUser]()
+    @IBOutlet weak var btnLogout: UIButton!
+    @IBOutlet weak var cvImages: UICollectionView!
+    
+    private var themes : [ChatTheme] = [ChatTheme]()
+//    private var selectedUsers : [String : ChatUser] = [String : ChatUser]()
     private var selectedImage : UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.btnLogout.contentEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10)
+        
+        self.cvImages.registerNib(ChatImageViewCell.self)
+        self.cvImages.dataSource = self
+        self.cvImages.delegate = self
+        
+        self.loadThemes(category: .shared)
+    }
+    
+    @IBAction func onMyThemes(_ sender: Any) {
+        self.loadThemes(category: .mine)
+    }
+    
+    @IBAction func onSharedThemes(_ sender: Any) {
+        self.loadThemes(category: .shared)
+    }
+    
+    func loadThemes(category: ThemeCategory) {
+        DataService.instance.getThemes { [weak self] (themesData) in
+            self?.reloadThemes(themes: themesData)
+        }
+    }
+    
+    func reloadThemes(themes: [ChatTheme]) {
+        self.themes = themes
+        self.cvImages.reloadData()
     }
     
     @IBAction func onLogout(_ sender: Any) {
@@ -90,6 +120,29 @@ extension ChatHomeVC : UIImagePickerControllerDelegate, UINavigationControllerDe
         }
         
         picker.dismiss(animated: true, completion: nil)
+        self.showSelectedPicture()
+    }
+}
+
+extension ChatHomeVC : UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.themes.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: ChatImageViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+        cell.updateUI()
+        return cell
+    }
+}
+
+extension ChatHomeVC : UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.selectedImage = #imageLiteral(resourceName: "check-mark")
         self.showSelectedPicture()
     }
 }

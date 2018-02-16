@@ -35,4 +35,25 @@ class FirebaseDataParser: NSObject {
             return users
         }
     }
+    
+    static func getChatThemes(snapshot: DataSnapshot) -> [ChatTheme] {
+        var themes = [ChatTheme]()
+        if let themesDict = snapshot.value as? Dictionary<String, AnyObject> {
+            for (key, value) in themesDict {
+                if let themeDict = value as? Dictionary<String, AnyObject> {
+                    if let author = themeDict["author"] as? String,
+                        let url = themeDict["url"] as? String {
+                        themes.append(ChatTheme(uid: key,
+                                                author: author,
+                                                url: url))
+                    }
+                }
+            }
+            
+            return themes
+        }
+        else {
+            return themes
+        }
+    }
 }
