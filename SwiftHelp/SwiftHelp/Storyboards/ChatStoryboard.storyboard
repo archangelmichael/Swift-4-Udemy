@@ -683,7 +683,7 @@
                                         <rect key="frame" x="20" y="587" width="335" height="40"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t8C-x4-Z33">
-                                                <rect key="frame" x="0.0" y="0.0" width="167.5" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="111.5" height="40"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
                                                 <state key="normal" title="Save">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -695,8 +695,21 @@
                                                     <action selector="onSave:" destination="ugB-qI-4Qm" eventType="touchUpInside" id="Owa-gL-5Hv"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3b7-Xf-yj9">
+                                                <rect key="frame" x="111.5" y="0.0" width="112" height="40"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
+                                                <state key="normal" title="Delete">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <state key="highlighted">
+                                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="onDelete:" destination="ugB-qI-4Qm" eventType="touchUpInside" id="rKE-aC-Qh7"/>
+                                                </connections>
+                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2eE-Jo-uLF">
-                                                <rect key="frame" x="167.5" y="0.0" width="167.5" height="40"/>
+                                                <rect key="frame" x="223.5" y="0.0" width="111.5" height="40"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
                                                 <state key="normal" title="Apply">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -741,6 +754,7 @@
                     </view>
                     <connections>
                         <outlet property="btnApply" destination="2eE-Jo-uLF" id="3Hc-l6-u7c"/>
+                        <outlet property="btnDelete" destination="3b7-Xf-yj9" id="Qsj-rA-Onf"/>
                         <outlet property="btnSave" destination="t8C-x4-Z33" id="tUq-xr-MFW"/>
                         <outlet property="ivBackground" destination="p1h-XT-Pme" id="wne-xW-Hra"/>
                     </connections>

@@ -36,9 +36,12 @@ class DataService: NSObject {
                   firstname: String?,
                   lastname: String?,
                   email: String?) {
-        let profile = ["email" : email,
-                       "firstname" : firstname,
-                       "lastname" : lastname]
+        let profile = [
+            "email" : email,
+            "firstname" : firstname,
+            "lastname" : lastname
+        ]
+        
         usersReference.child(uid).child("profile").setValue(profile)
     }
     
@@ -49,10 +52,15 @@ class DataService: NSObject {
         }
     }
     
-    func saveTheme(author: String?,
+    func saveTheme(name: String?,
+                   author: String?,
                    url: String?) {
-        let theme = ["author" : author,
-                     "url" : url]
+        let theme = [
+            "name" : name,
+            "author" : author,
+            "url" : url
+        ]
+        
         themesReference.setValue(theme)
     }
     

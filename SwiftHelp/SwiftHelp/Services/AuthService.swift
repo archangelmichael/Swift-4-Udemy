@@ -26,6 +26,12 @@ class AuthService: NSObject {
         }
     }
     
+    var loggedUserName : String? {
+        get {
+            return Auth.auth().currentUser?.email
+        }
+    }
+    
     func login(email:String, pass:String, completion: AuthCompletion?) {
         Auth.auth().signIn(withEmail: email, password: pass) { (user, error) in
             if error != nil {

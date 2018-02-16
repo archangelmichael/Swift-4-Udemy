@@ -41,9 +41,11 @@ class FirebaseDataParser: NSObject {
         if let themesDict = snapshot.value as? Dictionary<String, AnyObject> {
             for (key, value) in themesDict {
                 if let themeDict = value as? Dictionary<String, AnyObject> {
-                    if let author = themeDict["author"] as? String,
+                    if  let name = themeDict["name"] as? String,
+                        let author = themeDict["author"] as? String,
                         let url = themeDict["url"] as? String {
                         themes.append(ChatTheme(uid: key,
+                                                name: name,
                                                 author: author,
                                                 url: url))
                     }
