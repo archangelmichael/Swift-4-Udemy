@@ -18,30 +18,41 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ChatImageViewCell" id="gTV-IL-0wX" customClass="ChatImageViewCell" customModule="SwiftHelp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="99" height="97"/>
+            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="99" height="97"/>
+                <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login-background" translatesAutoresizingMaskIntoConstraints="NO" id="Ijc-VK-UZG">
-                        <rect key="frame" x="0.0" y="0.0" width="99" height="97"/>
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                     </imageView>
                     <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7M3-Ty-cHz">
-                        <rect key="frame" x="0.0" y="0.0" width="99" height="97"/>
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by Radi" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="ZMw-RX-uPw">
-                                <rect key="frame" x="0.0" y="75.5" width="99" height="21.5"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="WzA-vt-8Ah">
+                                <rect key="frame" x="0.0" y="157" width="200" height="43"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by Radi" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="avu-Wc-lOr">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="21.5"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by Radi" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="ZMw-RX-uPw">
+                                        <rect key="frame" x="0.0" y="21.5" width="200" height="21.5"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ZMw-RX-uPw" firstAttribute="leading" secondItem="7M3-Ty-cHz" secondAttribute="leading" id="1Wd-ob-ouh"/>
-                            <constraint firstAttribute="bottom" secondItem="ZMw-RX-uPw" secondAttribute="bottom" id="SkW-TU-jO3"/>
-                            <constraint firstAttribute="trailing" secondItem="ZMw-RX-uPw" secondAttribute="trailing" id="uhZ-5t-xyB"/>
+                            <constraint firstItem="WzA-vt-8Ah" firstAttribute="leading" secondItem="7M3-Ty-cHz" secondAttribute="leading" id="L6F-f0-BtD"/>
+                            <constraint firstAttribute="trailing" secondItem="WzA-vt-8Ah" secondAttribute="trailing" id="gl0-e0-SuV"/>
+                            <constraint firstAttribute="bottom" secondItem="WzA-vt-8Ah" secondAttribute="bottom" id="vNj-JY-afR"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -66,6 +77,7 @@
             <connections>
                 <outlet property="ivAvatar" destination="Ijc-VK-UZG" id="RVp-da-2Kc"/>
                 <outlet property="lblAuthor" destination="ZMw-RX-uPw" id="LvR-lu-NPq"/>
+                <outlet property="lblDate" destination="avu-Wc-lOr" id="5Nx-lY-RIs"/>
             </connections>
             <point key="canvasLocation" x="-169.5" y="-101.5"/>
         </collectionViewCell>

@@ -12,30 +12,69 @@ class ChatBackgroundPreviewVC: UIViewController {
 
     @IBOutlet weak var ivBackground: UIImageView!
     
+    @IBOutlet weak var btnShare: UIButton!
     @IBOutlet weak var btnSave: UIButton!
     @IBOutlet weak var btnApply: UIButton!
     @IBOutlet weak var btnDelete: UIButton!
+    @IBOutlet weak var vLoading: UIActivityIndicatorView!
+    
+    private var _themeName : String?
+    
+    var themeName : String {
+        get {
+            if let theme = self.selectedTheme
+                {
+                return theme.name
+            }
+            else if let name = _themeName {
+                return name
+            }
+            else {
+                _themeName = "\(DateHelper.getDateTimeStamp())\(AppConstants.UploadImageType)"
+                return _themeName!
+            }
+        }
+    }
     
     var selectedTheme: ChatTheme?
     var selectedImage: UIImage?
     let selectedThemeAuthor : String? = AuthService.instance.loggedUserName
-    var selectedThemeName: String?
-    var selectedThemeUrl: String?
+    let selectedThemeAuthorID : String? = AuthService.instance.loggedUserID
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if let _ = self.selectedTheme {
-            self.updateActions(save: false, apply: true, delete: true)
+            self.updateActions(share: true, save: false, apply: true, delete: true)
         }
         else if let _ = self.selectedImage {
-            self.updateActions(save: true, apply: false, delete: false)
+            self.updateActions(share: false, save: true, apply: false, delete: false)
         }
         else {
-            self.updateActions(save: false, apply: false, delete: false)
+            self.updateActions()
         }
         
-        self.ivBackground.image = self.selectedImage
+        self.updateBackground()
+    }
+    
+    func updateBackground() {
+        if let image = self.selectedImage {
+            self.ivBackground.image = image
+        }
+        else {
+            self.ivBackground.image = ImageHelper.getAppBackground()
+        }
+        
+        if let theme = self.selectedTheme {
+            self.vLoading.startAnimating()
+            StorageService.instance.getTheme(filePath: theme.filePath,
+                                             failure: errorCallback)
+                { [weak self] (image) in
+                    self?.vLoading.stopAnimating()
+                    self?.selectedImage = image
+                    self?.ivBackground.image = image
+            }
+        }
     }
 
     @IBAction func onBack(_ sender: Any) {
@@ -43,44 +82,77 @@ class ChatBackgroundPreviewVC: UIViewController {
     }
     
     @IBAction func onShare(_ sender: Any) {
-        if let image = self.selectedImage,
+        if let theme = self.selectedTheme,
             let sendVC = NavigationHelper.getVC(vc: ChatSendVC.self, sourceVC: self) {
-            sendVC.selectedImage = image
+            sendVC.selectedTheme = theme
             self.present(sendVC, animated: true, completion: nil)
         }
         else {
-            self.showAlert(title: "No image selected")
+            self.showAlert(title: "No theme selected")
         }
     }
     
     @IBAction func onSave(_ sender: Any) {
-        self.selectedThemeName = "\(DateHelper.getDateTimeStamp()).png"
-        if let themeAuthor = self.selectedThemeAuthor,
-            let themeName = self.selectedThemeName,
+        if  let themeAuthor = self.selectedThemeAuthor,
+            let themeAuthorID = self.selectedThemeAuthorID,
             let image = self.selectedImage,
-            let imageData = UIImagePNGRepresentation(image)
-             {
+            let imageData = UIImageJPEGRepresentation(image, AppConstants.UploadImageCompressionQuality) {
             
+            self.vLoading.startAnimating()
             StorageService.instance.storeThemeData(data: imageData,
                                                    name: themeName,
-                                                   author: themeAuthor)
-            { [weak self] (themeUrl, error) in
-                if let err = error {
-                    self?.showAlert(title: "Error uploading image", message: err.localizedDescription)
+                                                   author: themeAuthor,
+                                                   authorID: themeAuthorID,
+                                                   failure: errorCallback)
+            { [weak self] (themePath) in
+                guard let weakself = self else {
+                    return;
+                }
+                
+                if let themePath = themePath {
+                    DataService.instance.saveTheme(name: weakself.themeName,
+                                                   author: themeAuthor,
+                                                   authorID: themeAuthorID,
+                                                   filePath: themePath,
+                                                   failure:
+                        { [weak self] (error) in
+                            guard let weakself = self else {
+                                return;
+                            }
+                            
+                            StorageService.instance.deleteTheme(name: weakself.themeName,
+                                                                failure: nil,
+                                                                succcess: nil)
+                            weakself.errorCallback(error: error)
+                    })
+                    { [weak self] (theme) in
+                        self?.vLoading.stopAnimating()
+                        self?.selectedTheme = theme
+                        weakself.updateActions(share: false,
+                                               save: false,
+                                               apply: true,
+                                               delete: true)
+                    }
                 }
                 else {
-                    self?.selectedThemeUrl = themeUrl
-                    self?.updateActions(save: false, apply: true, delete: true)
+                    self?.errorCallback(error: NSError(domain: "app",
+                                                       code: 400,
+                                                       userInfo: ["message" : ""]))
                 }
             }
         }
     }
 
     @IBAction func onApply(_ sender: Any) {
+        self.vLoading.startAnimating()
         let imageSaved = ImageHelper.setAppBackground(image: self.selectedImage,
                                                       name: DateHelper.getDateTimeStamp())
+        self.vLoading.stopAnimating()
         if imageSaved {
-            self.updateActions(save: false, apply: false, delete: true)
+            self.updateActions(share: true,
+                               save: false,
+                               apply: false,
+                               delete: true)
         }
         else {
             self.showAlert(title: "Error saving image")
@@ -88,24 +160,32 @@ class ChatBackgroundPreviewVC: UIViewController {
     }
     
     @IBAction func onDelete(_ sender: Any) {
-        if let themeName = self.selectedThemeName {
-            StorageService.instance.deleteTheme(name: themeName,
-                                                completion:
-                { [weak self] (error) in
-                    if let err = error {
-                        self?.showAlert(title: "Error deleting image",
-                                        message: err.localizedDescription)
-                    }
-                    else {
-                        self?.close()
-                    }
-            })
+        self.vLoading.startAnimating()
+        StorageService.instance.deleteTheme(name: themeName,
+                                            failure: errorCallback)
+            { [weak self] () in
+                self?.vLoading.stopAnimating()
+                self?.close()
+        }
+        
+        if let theme = self.selectedTheme {
+            DataService.instance.deleteTheme(theme: theme,
+                                             failure: errorCallback,
+                                             success: nil)
         }
     }
     
-    func updateActions(save: Bool,
-                       apply: Bool,
-                       delete: Bool) {
+    func errorCallback(error: Error) {
+        self.vLoading.stopAnimating()
+        self.showAlert(title: "Error deleting image",
+                       message: error.localizedDescription)
+    }
+    
+    func updateActions(share: Bool = false,
+                       save: Bool = false,
+                       apply: Bool = false,
+                       delete: Bool = false) {
+        self.btnShare.isHidden = !share
         self.btnSave.isHidden = !save
         self.btnApply.isHidden = !apply
         self.btnDelete.isHidden = !delete

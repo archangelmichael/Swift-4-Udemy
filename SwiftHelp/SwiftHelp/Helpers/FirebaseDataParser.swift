@@ -43,11 +43,16 @@ class FirebaseDataParser: NSObject {
                 if let themeDict = value as? Dictionary<String, AnyObject> {
                     if  let name = themeDict["name"] as? String,
                         let author = themeDict["author"] as? String,
-                        let url = themeDict["url"] as? String {
+                        let authorID = themeDict["authorID"] as? String,
+                        let filePath = themeDict["filePath"] as? String {
+                        
+                        let viewers = themeDict["viewers"] as? [String]
                         themes.append(ChatTheme(uid: key,
                                                 name: name,
                                                 author: author,
-                                                url: url))
+                                                authorID: authorID,
+                                                filePath: filePath,
+                                                viewers: viewers))
                     }
                 }
             }
@@ -56,6 +61,29 @@ class FirebaseDataParser: NSObject {
         }
         else {
             return themes
+        }
+    }
+    
+    static func getChatTheme(snapshot: DataSnapshot) -> ChatTheme? {
+        
+        if let themeDict = snapshot.value as? Dictionary<String, AnyObject> {
+            if  let name = themeDict["name"] as? String,
+                let author = themeDict["author"] as? String,
+                let authorID = themeDict["authorID"] as? String,
+                let filePath = themeDict["filePath"] as? String {
+                let viewers = themeDict["viewers"] as? [String]
+                return ChatTheme(uid: snapshot.key,
+                                 name: name,
+                                 author: author,
+                                 authorID: authorID,
+                                 filePath: filePath,
+                                 viewers: viewers)
+            }
+            
+            return nil
+        }
+        else {
+            return nil
         }
     }
 }

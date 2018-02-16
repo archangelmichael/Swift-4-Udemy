@@ -18,8 +18,6 @@ class ChatHomeVC: BackgroundViewController {
     @IBOutlet weak var cvImages: UICollectionView!
     
     private var themes : [ChatTheme] = [ChatTheme]()
-//    private var selectedUsers : [String : ChatUser] = [String : ChatUser]()
-    private var selectedImage : UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,14 +94,23 @@ class ChatHomeVC: BackgroundViewController {
         self.present(imagePickerVC, animated: true, completion: nil)
     }
     
-    func showSelectedPicture() {
-        if let image = self.selectedImage,
-            let previewVC = NavigationHelper.getVC(vc: ChatBackgroundPreviewVC.self, sourceVC: self) {
+    func showSelectedImage(image: UIImage) {
+        if let previewVC = NavigationHelper.getVC(vc: ChatBackgroundPreviewVC.self, sourceVC: self) {
             previewVC.selectedImage = image
             self.present(previewVC, animated: true, completion: nil)
         }
         else {
             self.showAlert(title: "No image selected")
+        }
+    }
+    
+    func showSelectedTheme(theme: ChatTheme) {
+        if let previewVC = NavigationHelper.getVC(vc: ChatBackgroundPreviewVC.self, sourceVC: self) {
+            previewVC.selectedTheme = theme
+            self.present(previewVC, animated: true, completion: nil)
+        }
+        else {
+            self.showAlert(title: "No theme selected")
         }
     }
 }
@@ -114,13 +121,14 @@ extension ChatHomeVC : UIImagePickerControllerDelegate, UINavigationControllerDe
         picker.dismiss(animated: true, completion: nil)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            self.selectedImage = pickedImage
-        }
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [String : Any]) {
         
         picker.dismiss(animated: true, completion: nil)
-        self.showSelectedPicture()
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            let resizedImg = pickedImage.resized(size: 1024)
+            self.showSelectedImage(image: resizedImg)
+        }
     }
 }
 
@@ -135,15 +143,16 @@ extension ChatHomeVC : UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: ChatImageViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-        cell.updateUI()
+        let theme = self.themes[indexPath.row]
+        cell.updateUI(theme: theme)
         return cell
     }
 }
 
 extension ChatHomeVC : UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.selectedImage = #imageLiteral(resourceName: "check-mark")
-        self.showSelectedPicture()
+        let theme = self.themes[indexPath.row]
+        self.showSelectedTheme(theme: theme)
     }
 }
 

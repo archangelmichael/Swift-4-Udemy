@@ -263,7 +263,7 @@
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qIo-SB-Xns">
                                         <rect key="frame" x="20" y="60" width="335" height="519"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="P6u-uZ-3i7">
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="20" minimumInteritemSpacing="20" id="P6u-uZ-3i7">
                                             <size key="itemSize" width="50" height="50"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -654,7 +654,7 @@
                                         <rect key="frame" x="20" y="0.0" width="335" height="40"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OW8-2c-Kbq">
-                                                <rect key="frame" x="0.0" y="0.0" width="167.5" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="335" height="40"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
                                                 <state key="normal" title="Back"/>
                                                 <state key="highlighted">
@@ -664,8 +664,52 @@
                                                     <action selector="onBack:" destination="ugB-qI-4Qm" eventType="touchUpInside" id="L9A-pI-kxS"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pD3-hk-Yz0">
-                                                <rect key="frame" x="167.5" y="0.0" width="167.5" height="40"/>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="shO-fL-QRM">
+                                        <rect key="frame" x="20" y="587" width="335" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t8C-x4-Z33">
+                                                <rect key="frame" x="0.0" y="0.0" width="84" height="40"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
+                                                <state key="normal" title="Save">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <state key="highlighted">
+                                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="onSave:" destination="ugB-qI-4Qm" eventType="touchUpInside" id="Owa-gL-5Hv"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3b7-Xf-yj9">
+                                                <rect key="frame" x="84" y="0.0" width="83.5" height="40"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
+                                                <state key="normal" title="Delete">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <state key="highlighted">
+                                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="onDelete:" destination="ugB-qI-4Qm" eventType="touchUpInside" id="rKE-aC-Qh7"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2eE-Jo-uLF">
+                                                <rect key="frame" x="167.5" y="0.0" width="84" height="40"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
+                                                <state key="normal" title="Apply">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <state key="highlighted">
+                                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="onApply:" destination="ugB-qI-4Qm" eventType="touchUpInside" id="9wL-mn-2oG"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pD3-hk-Yz0">
+                                                <rect key="frame" x="251.5" y="0.0" width="83.5" height="40"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
                                                 <state key="normal" title="Share">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -679,50 +723,9 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="shO-fL-QRM">
-                                        <rect key="frame" x="20" y="587" width="335" height="40"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t8C-x4-Z33">
-                                                <rect key="frame" x="0.0" y="0.0" width="111.5" height="40"/>
-                                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
-                                                <state key="normal" title="Save">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <state key="highlighted">
-                                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="onSave:" destination="ugB-qI-4Qm" eventType="touchUpInside" id="Owa-gL-5Hv"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3b7-Xf-yj9">
-                                                <rect key="frame" x="111.5" y="0.0" width="112" height="40"/>
-                                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
-                                                <state key="normal" title="Delete">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <state key="highlighted">
-                                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="onDelete:" destination="ugB-qI-4Qm" eventType="touchUpInside" id="rKE-aC-Qh7"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2eE-Jo-uLF">
-                                                <rect key="frame" x="223.5" y="0.0" width="111.5" height="40"/>
-                                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
-                                                <state key="normal" title="Apply">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <state key="highlighted">
-                                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="onApply:" destination="ugB-qI-4Qm" eventType="touchUpInside" id="9wL-mn-2oG"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="vFW-O8-Ncl">
+                                        <rect key="frame" x="169" y="305" width="37" height="37"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -732,6 +735,8 @@
                                     <constraint firstItem="DpC-yx-YZR" firstAttribute="top" secondItem="FhX-ZJ-LjC" secondAttribute="top" id="gHR-Pz-mgL"/>
                                     <constraint firstAttribute="bottom" secondItem="shO-fL-QRM" secondAttribute="bottom" constant="20" id="nno-8i-sQP"/>
                                     <constraint firstItem="DpC-yx-YZR" firstAttribute="leading" secondItem="FhX-ZJ-LjC" secondAttribute="leading" constant="20" id="pQP-VV-C2I"/>
+                                    <constraint firstItem="vFW-O8-Ncl" firstAttribute="centerY" secondItem="FhX-ZJ-LjC" secondAttribute="centerY" id="pyk-h7-7UO"/>
+                                    <constraint firstItem="vFW-O8-Ncl" firstAttribute="centerX" secondItem="FhX-ZJ-LjC" secondAttribute="centerX" id="vt8-Iy-Xcj"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -756,7 +761,9 @@
                         <outlet property="btnApply" destination="2eE-Jo-uLF" id="3Hc-l6-u7c"/>
                         <outlet property="btnDelete" destination="3b7-Xf-yj9" id="Qsj-rA-Onf"/>
                         <outlet property="btnSave" destination="t8C-x4-Z33" id="tUq-xr-MFW"/>
+                        <outlet property="btnShare" destination="pD3-hk-Yz0" id="nho-Ht-R80"/>
                         <outlet property="ivBackground" destination="p1h-XT-Pme" id="wne-xW-Hra"/>
+                        <outlet property="vLoading" destination="vFW-O8-Ncl" id="2Pa-Cc-pMa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V35-ax-MJq" userLabel="First Responder" sceneMemberID="firstResponder"/>

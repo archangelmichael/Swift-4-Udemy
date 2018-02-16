@@ -11,6 +11,7 @@ import UIKit
 class ChatImageViewCell: UICollectionViewCell {
 
     @IBOutlet weak var ivAvatar: UIImageView!
+    @IBOutlet weak var lblDate: UILabel!
     @IBOutlet weak var lblAuthor: UILabel!
     
     override func awakeFromNib() {
@@ -18,8 +19,9 @@ class ChatImageViewCell: UICollectionViewCell {
         
     }
     
-    func updateUI() {
-        
+    func updateUI(theme: ChatTheme) {
+        self.lblDate.text = theme.name.replacingOccurrences(of: ".png", with: "")
+        self.lblAuthor.text = theme.author
     }
 
 }

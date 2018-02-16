@@ -10,11 +10,10 @@ import UIKit
 
 class FileHelper: NSObject {
     private static let DefaultBackgroundFileName = "login-background"
-    private static let BackgroundFileType = "png"
     
     static func storeBackgroundImage(image: UIImage?,
                                      name: String?,
-                                     type: String? = BackgroundFileType) -> Bool {
+                                     type: String? = AppConstants.UploadImageType) -> Bool {
         guard let validImage = image,
             let validName = name,
             let validType = type else {
@@ -22,7 +21,7 @@ class FileHelper: NSObject {
         }
         
         if let storedImgUrl = getImgFileUrl(name: validName, type: validType) {
-            if let imgData = UIImagePNGRepresentation(validImage) as NSData? {
+            if let imgData = UIImageJPEGRepresentation(validImage, 1.0) as NSData? {
                 imgData.write(toFile: storedImgUrl.path, atomically: true)
                 return true
             }
@@ -32,7 +31,7 @@ class FileHelper: NSObject {
     }
     
     static func getStoredBackgroundImage(name: String?,
-                                         type: String? = BackgroundFileType) -> UIImage? {
+                                         type: String? = AppConstants.UploadImageType) -> UIImage? {
         guard let validName = name,
             let validType = type else {
                 return nil

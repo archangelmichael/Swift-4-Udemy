@@ -26,6 +26,12 @@ class AuthService: NSObject {
         }
     }
     
+    var loggedUserID : String? {
+        get {
+            return Auth.auth().currentUser?.uid
+        }
+    }
+    
     var loggedUserName : String? {
         get {
             return Auth.auth().currentUser?.email

@@ -9,8 +9,11 @@
 import UIKit
 import FirebaseDatabase
 
-typealias FetchUsersCompletion = ([ChatUser]) -> Void
-typealias FetchThemesCompletion = ([ChatTheme]) -> Void
+typealias DataUsersOpSuccess = ([ChatUser]) -> Void
+
+typealias DataThemesOpSuccess = ([ChatTheme]) -> Void
+typealias DataThemeOpSuccess = (ChatTheme?) -> Void
+typealias DataThemeOpFailure = (Error) -> Void
 
 class DataService: NSObject {
 
@@ -45,29 +48,92 @@ class DataService: NSObject {
         usersReference.child(uid).child("profile").setValue(profile)
     }
     
-    func getUsers(completion: FetchUsersCompletion?) {
+    func getUsers(completion: DataUsersOpSuccess?) {
         usersReference.observe(DataEventType.value) { (snapshot) in
             let users = FirebaseDataParser.getChatUsers(snapshot: snapshot)
             completion?(users)
         }
     }
     
-    func saveTheme(name: String?,
-                   author: String?,
-                   url: String?) {
-        let theme = [
-            "name" : name,
-            "author" : author,
-            "url" : url
-        ]
-        
-        themesReference.setValue(theme)
-    }
-    
-    func getThemes(completion: FetchThemesCompletion?) {
+    func getThemes(completion: DataThemesOpSuccess?) {
         themesReference.observe(DataEventType.value) { (snapshot) in
             let themes = FirebaseDataParser.getChatThemes(snapshot: snapshot)
             completion?(themes)
         }
+    }
+    
+    func getThemeByID(themeID: String,
+                      completion: DataThemeOpSuccess?) {
+        themesReference.child(themeID).observe(DataEventType.value)
+        { (snapshot) in
+            let theme = FirebaseDataParser.getChatTheme(snapshot: snapshot)
+            completion?(theme)
+        }
+    }
+    
+    func saveTheme(name: String,
+                   author: String,
+                   authorID: String,
+                   filePath: String,
+                   failure: DataThemeOpFailure?,
+                   success: DataThemeOpSuccess?) {
+        let theme = [
+            "name" : name,
+            "author" : author,
+            "authorID" : authorID,
+            "filePath" : filePath,
+            "viewers" : [String]()
+            ] as [String : Any]
+        
+        themesReference.childByAutoId().setValue(theme)
+        { [weak self] (error, dbRef) in
+            if let err = error {
+                failure?(err)
+            }
+            else {
+                self?.getThemeWithRef(dbRef: dbRef, completion: success)
+            }
+        }
+    }
+    
+    func updateTheme(theme: ChatTheme,
+                     viewers: [String],
+                     failure: DataThemeOpFailure?,
+                     success: DataThemeOpSuccess?) {
+        let themeRef = themesReference.child(theme.uid)
+        let themeUpdate = ["viewers" : viewers] as [String : Any]
+        themeRef.updateChildValues(themeUpdate)
+        { [weak self] (error, dbRef) in
+            if let err = error {
+                failure?(err)
+            }
+            else {
+                self?.getThemeWithRef(dbRef: dbRef, completion: success)
+            }
+        }
+    }
+    
+    func deleteTheme(theme: ChatTheme,
+                     failure: DataThemeOpFailure?,
+                     success: DataThemeOpSuccess?) {
+        themesReference.child(theme.uid).removeValue
+            { [weak self]  (error, dbRef) in
+            if let err = error {
+                failure?(err)
+            }
+            else {
+                self?.getThemeWithRef(dbRef: dbRef, completion: success)
+            }
+        }
+    }
+    
+    func getThemeWithRef(dbRef: DatabaseReference,
+                         completion: DataThemeOpSuccess?) {
+        dbRef.observe(DataEventType.value,
+                      with:
+            { (snapshot) in
+                let theme = FirebaseDataParser.getChatTheme(snapshot: snapshot)
+                completion?(theme)
+        })
     }
 }

@@ -13,7 +13,7 @@ class ChatSendVC: BackgroundViewController {
     @IBOutlet weak var tvUsers: UITableView!
     @IBOutlet weak var btnSend: UIButton!
     
-    public var selectedImage : UIImage!
+    public var selectedTheme : ChatTheme!
     
     private var users : [ChatUser] = [ChatUser]()
     private var selectedUsers : [String : ChatUser] = [String : ChatUser]()
@@ -34,8 +34,19 @@ class ChatSendVC: BackgroundViewController {
     }
     
     @IBAction func onSend(_ sender: Any) {
-        // TODO: Implement
-        self.close()
+        let viewers = self.selectedUsers.values.map { user in user.uid }
+        DataService.instance.updateTheme(theme: self.selectedTheme,
+                                         viewers: viewers,
+                                         failure: errorCallback)
+            { [weak self] (theme) in
+                self?.selectedTheme = theme
+                self?.close()
+        }
+    }
+    
+    func errorCallback(error: Error) {
+        self.showAlert(title: "Operation failed",
+                       message: error.localizedDescription)
     }
     
     @IBAction func onCancel(_ sender: Any) {

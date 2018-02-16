@@ -9,8 +9,11 @@
 import UIKit
 import FirebaseStorage
 
-typealias StoreThemeCompletion = (String?, Error?) -> Void
-typealias DeleteThemeCompletion = ((Error?) -> Void)?
+typealias StorageThemeOpSuccess = (String?) -> Void
+typealias StorageImageOpSuccess = (UIImage?) -> Void
+typealias StorageOpSuccess = () -> Void
+typealias StorageOpFailure = (Error) -> Void
+
 
 class StorageService: NSObject {
     private static let _instance = StorageService()
@@ -30,28 +33,54 @@ class StorageService: NSObject {
     func storeThemeData(data: Data,
                         name: String,
                         author: String,
-                        completion: StoreThemeCompletion?) {
+                        authorID: String,
+                        failure: StorageOpFailure?,
+                        success: StorageThemeOpSuccess?) {
         _ = themesReference.child(name).putData(data, metadata: nil)
         { (metadata, error) in
-            guard let metadata = metadata else {
-                completion?(nil, error)
-                return
-            }
-            // Metadata contains file metadata such as size, content-type, and download URL.
-            if let downloadURL = metadata.downloadURL() {
-                completion?(downloadURL.path, nil)
+            if let err = error {
+                failure?(err)
             }
             else {
-                let invalidUrl = NSError(domain: "app",
-                                         code: 400,
-                                         userInfo: ["message":"Invalid download url"])
-                completion?(nil, invalidUrl)
+                if let filePath = metadata?.path {
+                    success?(filePath)
+                }
+                else {
+                    let invalidUrl = NSError(domain: "app",
+                                             code: 400,
+                                             userInfo: ["message":"Invalid download url"])
+                    failure?(invalidUrl)
+                }
+            }
+        }
+    }
+    
+    func getTheme(filePath: String,
+                  failure: StorageOpFailure?,
+                  success: StorageImageOpSuccess?){
+        let fileRef = storageReference.child(filePath)
+        fileRef.getData(maxSize: AppConstants.MaxDownloadImageSizeInMB)
+        { (data, error) in
+            if let err = error {
+                failure?(err)
+            }
+            else {
+                let image = UIImage(data: data!)
+                success?(image)
             }
         }
     }
     
     func deleteTheme(name: String,
-                     completion: DeleteThemeCompletion) {
-        themesReference.child(name).delete(completion: completion)
+                     failure: StorageOpFailure?,
+                     succcess: StorageOpSuccess?){
+        themesReference.child(name).delete { (error) in
+            if let err = error {
+                failure?(err)
+            }
+            else {
+                succcess?()
+            }
+        }
     }
 }
